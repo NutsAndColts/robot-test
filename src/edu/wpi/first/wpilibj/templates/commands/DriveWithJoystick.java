@@ -1,15 +1,19 @@
-
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package edu.wpi.first.wpilibj.templates.commands;
 
 /**
  *
- * @author bradmiller
+ * @author Zach
  */
-public class ExampleCommand extends CommandBase {
-
-    public ExampleCommand() {
+public class DriveWithJoystick extends CommandBase {
+    
+    public DriveWithJoystick() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
+        requires(driveTrain);
     }
 
     // Called just before this Command runs the first time
@@ -18,6 +22,7 @@ public class ExampleCommand extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+        driveTrain.driveWithJoystick(oi.getJoystick());
     }
 
     // Make this return true when this Command no longer needs to run execute()
