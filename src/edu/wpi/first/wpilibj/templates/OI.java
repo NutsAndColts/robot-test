@@ -1,9 +1,11 @@
 
 package edu.wpi.first.wpilibj.templates;
 
+import edu.wpi.first.wpilibj.DriverStation;
+import edu.wpi.first.wpilibj.DriverStationEnhancedIO;
+import edu.wpi.first.wpilibj.DriverStationEnhancedIO.EnhancedIOException;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
-import edu.wpi.first.wpilibj.buttons.DigitalIOButton;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -44,13 +46,20 @@ public class OI {
     
     public static final int JOYSTICK_PORT = 1;
     private Joystick stick;
+    private DriverStationEnhancedIO enhancedIO;
     
     public OI(){
         stick = new Joystick(JOYSTICK_PORT);
+        
+        enhancedIO = DriverStation.getInstance().getEnhancedIO();
     }
     
     public Joystick getJoystick(){
         return stick;
+    }
+    
+    public boolean getButton(int channel) throws EnhancedIOException {
+        return enhancedIO.getButton(channel);
     }
 }
 
