@@ -67,6 +67,8 @@ public class OI {
         try {
             return enhancedIO.getButton(channel);
         } catch(EnhancedIOException e) {
+            Preseason2014.disp(1, "EnhancedIOException");
+            Preseason2014.disp(2, "on button " + channel);
             return false;
         }
     }
