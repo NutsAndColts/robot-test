@@ -58,8 +58,17 @@ public class OI {
         return stick;
     }
     
-    public boolean getButton(int channel) throws EnhancedIOException {
-        return enhancedIO.getButton(channel);
+    /**
+     * 
+     * @param channel - the button channel to read
+     * @return True if the button is pressed, false if the button is not pressed or an exception is thrown
+     */
+    public boolean getButton(int channel) {
+        try {
+            return enhancedIO.getButton(channel);
+        } catch(EnhancedIOException e) {
+            return false;
+        }
     }
 }
 
