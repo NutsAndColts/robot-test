@@ -4,6 +4,8 @@
  */
 package edu.wpi.first.wpilibj.templates.commands;
 
+import edu.wpi.first.wpilibj.templates.Preseason2014;
+
 /**
  *
  * @author Zach
@@ -23,6 +25,7 @@ public class DriveWithJoystick extends CommandBase {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
         driveTrain.driveWithJoystick(oi.getJoystick());
+        Preseason2014.disp(1, "" + oi.getButton(1));
     }
 
     // Make this return true when this Command no longer needs to run execute()
