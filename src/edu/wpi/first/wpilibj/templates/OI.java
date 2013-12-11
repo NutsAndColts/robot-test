@@ -50,7 +50,6 @@ public class OI {
     
     public OI(){
         stick = new Joystick(JOYSTICK_PORT);
-        
         enhancedIO = DriverStation.getInstance().getEnhancedIO();
     }
     
@@ -67,8 +66,19 @@ public class OI {
         try {
             return enhancedIO.getButton(channel);
         } catch(EnhancedIOException e) {
-            Preseason2014.disp(1, "EnhancedIOException");
-            Preseason2014.disp(2, "on button " + channel);
+            return false;
+        }
+    }
+    
+    /**
+     * 
+     * @param channel - the button channel to read
+     * @return True if the button is pressed, false if the button is not pressed or an exception is thrown
+     */
+    public boolean getDigital(int channel) {
+        try {
+            return enhancedIO.getDigital(channel);
+        } catch(EnhancedIOException e) {
             return false;
         }
     }
