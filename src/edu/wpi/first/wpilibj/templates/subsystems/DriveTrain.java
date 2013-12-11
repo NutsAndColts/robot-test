@@ -34,14 +34,19 @@ public class DriveTrain extends Subsystem {
     }
     
     public void straight(){
-        drive.arcadeDrive(1.0,0.0);
+        //drive.arcadeDrive(1.0,0.0);
+        drive.tankDrive(1.0, 1.0);
     }
     
     public void turnLeft(){
         drive.arcadeDrive(0.0,1.0);
     }
     
-    public void driveWithJoystick(Joystick stick){
+    public void arcadeDriveWithJoystick(Joystick stick){
         drive.arcadeDrive(stick);
+    }
+    
+    public void tankDriveWithJoystick(Joystick leftStick, Joystick rightStick){
+        drive.tankDrive(leftStick, rightStick);
     }
 }
