@@ -42,15 +42,23 @@ public class OI {
     // until it is finished as determined by it's isFinished method.
     // button.whenReleased(new ExampleCommand());
     
-    public static final int JOYSTICK_PORT = 1;
-    private Joystick stick;
+    // Joystick 1 = Left wheel / motor
+    // Joystick 2 = Right wheel / motor
+    public static final int JOYSTICK_PORT1 = 1;
+    public static final int JOYSTICK_PORT2 = 2;
+    final private Joystick stick1;
+    final private Joystick stick2;
     
     public OI(){
-        stick = new Joystick(JOYSTICK_PORT);
+        stick1 = new Joystick(JOYSTICK_PORT1);
+        stick2 = new Joystick(JOYSTICK_PORT2);
     }
     
-    public Joystick getJoystick(){
-        return stick;
+    public Joystick getJoystick1(){
+        return stick1;
+    }
+    public Joystick getJoystick2(){
+        return stick2;
     }
 }
 
