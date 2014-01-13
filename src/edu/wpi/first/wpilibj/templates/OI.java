@@ -4,6 +4,8 @@ package edu.wpi.first.wpilibj.templates;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.DigitalIOButton;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import edu.wpi.first.wpilibj.templates.commands.CommandLights;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -43,10 +45,16 @@ public class OI {
     // button.whenReleased(new ExampleCommand());
     
     public static final int JOYSTICK_PORT = 1;
-    private Joystick stick;
+    private Joystick stick = new Joystick(JOYSTICK_PORT);
     
+    Button light0Button = new JoystickButton(stick, 1);
+    Button light1Button = new JoystickButton(stick, 2);
+    Button light2Button = new JoystickButton(stick, 3);
+
     public OI(){
-        stick = new Joystick(JOYSTICK_PORT);
+        light0Button.whenPressed(new CommandLights(0));
+        light1Button.whenPressed(new CommandLights(1));
+        light2Button.whenPressed(new CommandLights(2));
     }
     
     public Joystick getJoystick(){

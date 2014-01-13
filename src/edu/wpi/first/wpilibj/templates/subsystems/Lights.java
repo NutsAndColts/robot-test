@@ -7,6 +7,7 @@ package edu.wpi.first.wpilibj.templates.subsystems;
 
 import edu.wpi.first.wpilibj.Relay;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.templates.RobotMap;
 import edu.wpi.first.wpilibj.templates.commands.CommandLights;
 
 /**
@@ -22,6 +23,7 @@ public class Lights extends Subsystem {
     public Lights(){
         lightsArray = new Relay[3];
         for(int i=0; i<lightsArray.length; i++){
+            lightsArray[i] = new Relay(RobotMap.lightSpikes[i]);
             lightsArray[i].set(Relay.Value.kOff);
         }
     }

@@ -10,6 +10,7 @@ public class CommandLights extends CommandBase {
     
     int light;
     boolean value;
+    boolean toggle;
     
     public CommandLights(int light, boolean value) {
         // Use requires() here to declare subsystem dependencies
@@ -18,10 +19,17 @@ public class CommandLights extends CommandBase {
         this.light = light;
         this.value = value;
     }
+    
+    public CommandLights(int light){
+        requires(lights);
+        this.light = light;
+        this.toggle = true;
+    }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        lights.set(light, value);
+        if(toggle) lights.toggle(light);
+        else lights.set(light, value);
     }
 
     // Called repeatedly when this Command is scheduled to run
