@@ -12,28 +12,31 @@ package edu.wpi.first.wpilibj.templates.commands;
  */
 public class CommandPneumatics extends CommandBase {
     
-    public CommandPneumatics() {
+    private boolean value;
+    
+    public CommandPneumatics(boolean value) {
         requires(pneumatics);
+        this.value = value;
     }
 
     protected void initialize() {
-        throw new java.lang.UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        pneumatics.set(value);
     }
 
     protected void execute() {
-        throw new java.lang.UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 
     protected boolean isFinished() {
-        throw new java.lang.UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 
     protected void end() {
-        throw new java.lang.UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 
     protected void interrupted() {
-        throw new java.lang.UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
     
 }

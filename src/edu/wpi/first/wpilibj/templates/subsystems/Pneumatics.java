@@ -6,7 +6,10 @@
 
 package edu.wpi.first.wpilibj.templates.subsystems;
 
+import edu.wpi.first.wpilibj.Relay;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.templates.RobotMap;
+import edu.wpi.first.wpilibj.templates.commands.CommandPneumatics;
 
 /**
  *
@@ -14,12 +17,18 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class Pneumatics extends Subsystem {
 
-    public Pneumatics() {
+    Relay solenoid = new Relay(RobotMap.solenoid);
     
+    public void set(boolean value) {
+        if(value) {
+            solenoid.set(Relay.Value.kOn);
+        } else {
+            solenoid.set(Relay.Value.kOff);
+        }
     }
     
     protected void initDefaultCommand() {
-        setDefaultCommand();
+        setDefaultCommand(new CommandPneumatics(false));
     }
     
 }
