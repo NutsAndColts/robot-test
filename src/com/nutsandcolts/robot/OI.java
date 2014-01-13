@@ -6,6 +6,12 @@ import com.nutsandcolts.robot.commands.IntakePull;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import edu.wpi.first.wpilibj.buttons.DigitalIOButton;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import com.nutsandcolts.commands.pneumatics.ActuatePneumatics;
+import com.nutsandcolts.commands.pneumatics.IdleCompressor;
+import com.nutsandcolts.commands.pneumatics.RunCompressor;
+import com.nutsandcolts.commands.pneumatics.SetPneumatics;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -46,16 +52,26 @@ public class OI {
     
     public static final int JOYSTICK_PORT = 1;
     private Joystick stick = new Joystick(JOYSTICK_PORT);
-    Button b1 = new JoystickButton(stick, 3);
-    Button b2 = new JoystickButton(stick, 2);
+    Button b1 = new JoystickButton(stick,1);
+    Button b2 = new JoystickButton(stick,2);
+    Button b3 = new JoystickButton(stick,3);
+    Button b4 = new JoystickButton(stick,4);
+    Button b5 = new JoystickButton(stick,5);
+    Button b6 = new JoystickButton(stick,6);
     
     public OI() {
         b1.whenPressed(new IntakePull());
-        b2.whenPressed(new IntakeIdle());
+        b2.whenPressed(new IntakePull());
+        b3.whenPressed(new SetPneumatics(true));
+        b4.whenPressed(new SetPneumatics(false));
+        b5.whenPressed(new ActuatePneumatics(500));
+        b6.whenPressed(new RunCompressor());
+        b6.whenReleased(new IdleCompressor());
     }
     
     public Joystick getJoystick() {
         return stick;
     }
+    
 }
 

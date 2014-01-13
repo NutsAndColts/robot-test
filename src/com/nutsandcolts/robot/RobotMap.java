@@ -18,6 +18,11 @@ public class RobotMap {
     // public static final int rangefinderModule = 1;
     public static final int leftMotor = 1;
     public static final int rightMotor = 2;
-    
     public static final int intakeMotor = 3;
+    
+    
+    public static final int solenoidForward = 1;
+    public static final int solenoidReverse = 2;
+    
+    public static final int compressor = 1;
 }
