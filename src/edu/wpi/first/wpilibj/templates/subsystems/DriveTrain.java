@@ -8,6 +8,7 @@ package edu.wpi.first.wpilibj.templates.subsystems;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.templates.OI;
 import edu.wpi.first.wpilibj.templates.RobotMap;
 import edu.wpi.first.wpilibj.templates.commands.DriveWithJoystick;
 
@@ -46,7 +47,10 @@ public class DriveTrain extends Subsystem {
         drive.arcadeDrive(stick);
     }
     
-    public void tankDriveWithJoystick(Joystick leftStick, Joystick rightStick){
-        drive.tankDrive(leftStick, rightStick);
+    public void tankDriveWithJoystick(Joystick stick){
+        drive.tankDrive(
+                stick.getRawAxis(OI.JOYSTICK_LEFT_VERT_AXIS),
+                stick.getRawAxis(OI.JOYSTICK_RIGHT_VERT_AXIS)
+        );
     }
 }

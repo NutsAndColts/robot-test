@@ -45,20 +45,16 @@ public class OI {
     // Joystick 1 = Left wheel / motor
     // Joystick 2 = Right wheel / motor
     public static final int JOYSTICK_PORT1 = 1;
-    public static final int JOYSTICK_PORT2 = 2;
+    public static final int JOYSTICK_LEFT_VERT_AXIS = 2;
+    public static final int JOYSTICK_RIGHT_VERT_AXIS = 4;
     final private Joystick stick1;
-    final private Joystick stick2;
     
     public OI(){
         stick1 = new Joystick(JOYSTICK_PORT1);
-        stick2 = new Joystick(JOYSTICK_PORT2);
     }
     
     public Joystick getJoystick1(){
         return stick1;
-    }
-    public Joystick getJoystick2(){
-        return stick2;
     }
 }
 

@@ -23,7 +23,7 @@ public class DriveWithJoystick extends CommandBase {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
         //driveTrain.arcadeDriveWithJoystick(oi.getJoystick1());
-        driveTrain.tankDriveWithJoystick(oi.getJoystick1(), oi.getJoystick2());
+        driveTrain.tankDriveWithJoystick(oi.getJoystick1());
     }
 
     // Make this return true when this Command no longer needs to run execute()
