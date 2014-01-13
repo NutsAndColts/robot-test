@@ -38,6 +38,11 @@ public class Lights extends Subsystem {
         lightsArray[light].set(r);
     };
     
+    public void toggle(int light){
+        if(lightsArray[light].get() == Relay.Value.kOn) set(light, false);
+        else set(light, true);
+    }
+    
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());

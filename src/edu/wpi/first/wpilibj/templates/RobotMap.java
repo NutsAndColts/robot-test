@@ -18,7 +18,5 @@ public class RobotMap {
     // public static final int rangefinderModule = 1;
     public static final int leftMotor = 1;
     public static final int rightMotor = 2;
-    public static final int light1Spike = 3;
-    public static final int light2Spike = 4;
-    public static final int light3Spike = 5;
+    public static final int[] lightSpikes = {3,4,5};
 }
