@@ -8,6 +8,7 @@
 package com.nutsandcolts.robot;
 
 
+import edu.wpi.first.wpilibj.DriverStationLCD;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -71,5 +72,39 @@ public class Preseason2014 extends IterativeRobot {
      */
     public void testPeriodic() {
         LiveWindow.run();
+    }
+    
+    public static void disp(int line, String msg){
+        DriverStationLCD.Line l;
+        switch(line){
+            case 1:
+                l = DriverStationLCD.Line.kUser2;
+                break;
+                
+            case 2:
+                l = DriverStationLCD.Line.kUser3;
+                break;
+                
+            case 3:
+                l = DriverStationLCD.Line.kUser4;
+                break;
+                
+            case 4:
+                l = DriverStationLCD.Line.kUser5;
+                break;
+                
+            case 5:
+                l = DriverStationLCD.Line.kUser6;
+                break;
+                
+                
+            default:
+                l = DriverStationLCD.Line.kUser2;
+                break;
+            
+        }
+        
+        DriverStationLCD.getInstance().println(l, 1, msg);
+        DriverStationLCD.getInstance().updateLCD();
     }
 }
