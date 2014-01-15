@@ -18,6 +18,7 @@ import edu.wpi.first.wpilibj.templates.commands.pneumatics.SetPneumatics;
 public class Pneumatics extends Subsystem {
 
     Relay solenoid = new Relay(RobotMap.solenoid);
+    Relay compressor = new Relay(RobotMap.compressor);
     
     public void set(boolean value) {
         if(value) {
