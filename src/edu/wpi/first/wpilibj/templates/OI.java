@@ -4,6 +4,8 @@ package edu.wpi.first.wpilibj.templates;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.DigitalIOButton;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import edu.wpi.first.wpilibj.templates.commands.pneumatics.ActuatePneumatics;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -44,9 +46,11 @@ public class OI {
     
     public static final int JOYSTICK_PORT = 1;
     private Joystick stick;
+    Button b = new JoystickButton(stick, 2);
     
     public OI(){
         stick = new Joystick(JOYSTICK_PORT);
+        b.whenPressed(new ActuatePneumatics(500));
     }
     
     public Joystick getJoystick(){
