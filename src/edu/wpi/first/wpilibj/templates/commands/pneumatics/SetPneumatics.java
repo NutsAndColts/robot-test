@@ -22,7 +22,7 @@ public class SetPneumatics extends CommandBase {
     }
 
     protected void initialize() {
-        pneumatics.set(value);
+        pneumatics.setSolenoid(value);
     }
 
     protected void execute() {

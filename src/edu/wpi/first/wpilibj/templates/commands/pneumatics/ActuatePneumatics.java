@@ -23,17 +23,17 @@ public class ActuatePneumatics extends CommandBase {
     }
     
     protected void initialize() {
-        pneumatics.set(false);
+        Timer timer = new Timer();
+        pneumatics.setSolenoid(true);
+        timer.schedule(new TimerTask() {
+            public void run() {
+                pneumatics.setSolenoid(false);
+            }
+        }, delay);
     }
 
     protected void execute() {
-        Timer timer = new Timer();
-        pneumatics.set(true);
-        timer.schedule(new TimerTask() {
-            public void run() {
-                pneumatics.set(false);
-            }
-        }, delay);
+
     }
 
     protected boolean isFinished() {
@@ -41,11 +41,11 @@ public class ActuatePneumatics extends CommandBase {
     }
 
     protected void end() {
-        pneumatics.set(false);
+        pneumatics.setSolenoid(false);
     }
 
     protected void interrupted() {
-        pneumatics.set(false);
+        pneumatics.setSolenoid(false);
     }
     
 }
