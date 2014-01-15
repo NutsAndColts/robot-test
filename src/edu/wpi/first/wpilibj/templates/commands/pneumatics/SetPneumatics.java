@@ -4,17 +4,19 @@
  * and open the template in the editor.
  */
 
-package edu.wpi.first.wpilibj.templates.commands;
+package edu.wpi.first.wpilibj.templates.commands.pneumatics;
+
+import edu.wpi.first.wpilibj.templates.commands.CommandBase;
 
 /**
  *
  * @author Anthony
  */
-public class CommandPneumatics extends CommandBase {
+public class SetPneumatics extends CommandBase {
     
     private boolean value;
     
-    public CommandPneumatics(boolean value) {
+    public SetPneumatics(boolean value) {
         requires(pneumatics);
         this.value = value;
     }
@@ -28,7 +30,7 @@ public class CommandPneumatics extends CommandBase {
     }
 
     protected boolean isFinished() {
-        
+        return false;
     }
 
     protected void end() {

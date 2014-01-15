@@ -9,7 +9,7 @@ package edu.wpi.first.wpilibj.templates.subsystems;
 import edu.wpi.first.wpilibj.Relay;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.templates.RobotMap;
-import edu.wpi.first.wpilibj.templates.commands.CommandPneumatics;
+import edu.wpi.first.wpilibj.templates.commands.pneumatics.SetPneumatics;
 
 /**
  *
@@ -28,7 +28,7 @@ public class Pneumatics extends Subsystem {
     }
     
     protected void initDefaultCommand() {
-        setDefaultCommand(new CommandPneumatics(false));
+        setDefaultCommand(new SetPneumatics(false));
     }
     
 }
