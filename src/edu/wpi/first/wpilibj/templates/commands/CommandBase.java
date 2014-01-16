@@ -27,7 +27,7 @@ public abstract class CommandBase extends Command {
         // yet. Thus, their requires() statements may grab null pointers. Bad
         // news. Don't move it.
         oi = new OI();
-
+        SmartDashboard.putData(pneumatics);
     }
 
     public CommandBase(String name) {
