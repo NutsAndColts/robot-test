@@ -6,6 +6,8 @@ import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.DigitalIOButton;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.templates.commands.pneumatics.ActuatePneumatics;
+import edu.wpi.first.wpilibj.templates.commands.pneumatics.IdleCompressor;
+import edu.wpi.first.wpilibj.templates.commands.pneumatics.RunCompressor;
 import edu.wpi.first.wpilibj.templates.commands.pneumatics.SetPneumatics;
 
 /**
@@ -64,6 +66,7 @@ public class OI {
         b2.whenPressed(new SetPneumatics(false));
         b3.whenPressed(new ActuatePneumatics(500));
         b4.whenPressed(new RunCompressor());
+        b4.whenReleased(new IdleCompressor());
     }
 }
 
