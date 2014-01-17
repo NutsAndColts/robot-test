@@ -46,20 +46,24 @@ public class OI {
     // button.whenReleased(new ExampleCommand());
     
     public static final int JOYSTICK_PORT = 1;
-    private Joystick stick;
+    private Joystick stick = new Joystick(JOYSTICK_PORT);
     Button b1 = new JoystickButton(stick, 1);
     Button b2 = new JoystickButton(stick, 2);
     Button b3 = new JoystickButton(stick, 3);
-    
+    Button b4 = new JoystickButton(stick, 4);
     public OI(){
-        stick = new Joystick(JOYSTICK_PORT);
-        b1.whenPressed(new SetPneumatics(true));
-        b2.whenPressed(new SetPneumatics(false));
-        b3.whenPressed(new ActuatePneumatics(500));
+        setButtons();
     }
     
     public Joystick getJoystick(){
         return stick;
+    }
+    
+    private void setButtons() {
+        b1.whenPressed(new SetPneumatics(true));
+        b2.whenPressed(new SetPneumatics(false));
+        b3.whenPressed(new ActuatePneumatics(500));
+        b4.whenPressed(new RunCompressor());
     }
 }
 
