@@ -7,8 +7,6 @@
 package edu.wpi.first.wpilibj.templates.commands.pneumatics;
 
 import edu.wpi.first.wpilibj.templates.commands.CommandBase;
-import java.util.Timer;
-import java.util.TimerTask;
 
 /**
  *
@@ -23,13 +21,8 @@ public class ActuatePneumatics extends CommandBase {
     }
     
     protected void initialize() {
-        Timer timer = new Timer();
         pneumatics.setSolenoid(true);
-        timer.schedule(new TimerTask() {
-            public void run() {
-                pneumatics.setSolenoid(false);
-            }
-        }, delay);
+        setTimeout(delay / 1000.0);
     }
 
     protected void execute() {
@@ -37,7 +30,7 @@ public class ActuatePneumatics extends CommandBase {
     }
 
     protected boolean isFinished() {
-        return false;
+        return isTimedOut();
     }
 
     protected void end() {
@@ -45,7 +38,7 @@ public class ActuatePneumatics extends CommandBase {
     }
 
     protected void interrupted() {
-        pneumatics.setSolenoid(false);
+        end();
     }
     
 }
