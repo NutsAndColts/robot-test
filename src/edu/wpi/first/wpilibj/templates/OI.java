@@ -1,6 +1,7 @@
 
 package edu.wpi.first.wpilibj.templates;
 
+import Miscellaneous.CypressButton;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.DriverStationEnhancedIO;
 import edu.wpi.first.wpilibj.DriverStationEnhancedIO.EnhancedIOException;
@@ -46,41 +47,16 @@ public class OI {
     
     public static final int JOYSTICK_PORT = 1;
     private Joystick stick;
-    private DriverStationEnhancedIO enhancedIO;
+    public DriverStationEnhancedIO enhancedIO;
     
     public OI(){
         stick = new Joystick(JOYSTICK_PORT);
         enhancedIO = DriverStation.getInstance().getEnhancedIO();
+        Button CypressButton = new CypressButton(enhancedIO, 3);
     }
     
     public Joystick getJoystick(){
         return stick;
-    }
-    
-    /**
-     * 
-     * @param channel - the button channel to read
-     * @return True if the button is pressed, false if the button is not pressed or an exception is thrown
-     */
-    public boolean getButton(int channel) {
-        try {
-            return enhancedIO.getButton(channel);
-        } catch(EnhancedIOException e) {
-            return false;
-        }
-    }
-    
-    /**
-     * 
-     * @param channel - the button channel to read
-     * @return True if the button is pressed, false if the button is not pressed or an exception is thrown
-     */
-    public boolean getDigital(int channel) {
-        try {
-            return enhancedIO.getDigital(channel);
-        } catch(EnhancedIOException e) {
-            return false;
-        }
     }
 }
 

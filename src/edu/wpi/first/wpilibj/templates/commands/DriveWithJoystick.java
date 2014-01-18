@@ -25,8 +25,6 @@ public class DriveWithJoystick extends CommandBase {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
         driveTrain.driveWithJoystick(oi.getJoystick());
-        Preseason2014.disp(1, "Button: " + oi.getButton(1));
-        Preseason2014.disp(2, "Digital2: " + oi.getDigital(2));
     }
 
     // Make this return true when this Command no longer needs to run execute()
