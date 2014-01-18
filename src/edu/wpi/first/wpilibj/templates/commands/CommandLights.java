@@ -18,6 +18,7 @@ public class CommandLights extends CommandBase {
         requires(lights);
         this.light = light;
         this.value = value;
+        this.toggle = false;
     }
     
     public CommandLights(int light){

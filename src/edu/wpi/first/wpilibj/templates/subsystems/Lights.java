@@ -31,7 +31,7 @@ public class Lights extends Subsystem {
     public void set(int light, boolean value){
         Relay.Value r;
         if(value){
-            r = Relay.Value.kOn;
+            r = Relay.Value.kForward;
         } else {
             r = Relay.Value.kOff;
         }
@@ -39,7 +39,7 @@ public class Lights extends Subsystem {
     };
     
     public void toggle(int light){
-        if(lightsArray[light].get() == Relay.Value.kOn) set(light, false);
+        if(lightsArray[light].get() != Relay.Value.kOff) set(light, false);
         else set(light, true);
     }
     
