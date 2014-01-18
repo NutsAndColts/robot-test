@@ -5,6 +5,8 @@
  */
 package edu.wpi.first.wpilibj.templates.commands.pneumatics;
 
+import edu.wpi.first.wpilibj.templates.commands.CommandBase;
+
 /**
  *
  * @author Zach Kimberg
