@@ -1,28 +1,30 @@
 /*
- * To change this template, choose Tools | Templates
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package edu.wpi.first.wpilibj.templates.commands;
+package com.nutsandcolts.robot.commands;
 
 /**
  *
- * @author Zach
+ * @author Zach Kimberg
  */
-public class DriveWithJoystick extends CommandBase {
+public class LightsOn extends CommandBase {
     
-    public DriveWithJoystick() {
+    public LightsOn() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-        requires(driveTrain);
+        requires(lights);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+        lights.setLights(true);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        driveTrain.driveWithJoystick(oi.getJoystick());
+        lights.setLaser(oi.getJoystick().getRawAxis(3));
     }
 
     // Make this return true when this Command no longer needs to run execute()
