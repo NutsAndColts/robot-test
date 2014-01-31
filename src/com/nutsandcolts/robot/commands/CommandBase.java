@@ -1,9 +1,9 @@
-package edu.wpi.first.wpilibj.templates.commands;
+package com.nutsandcolts.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import edu.wpi.first.wpilibj.templates.OI;
-import edu.wpi.first.wpilibj.templates.subsystems.DriveTrain;
+import com.nutsandcolts.robot.OI;
+import com.nutsandcolts.robot.subsystems.DriveTrain;
 
 /**
  * The base for all commands. All atomic commands should subclass CommandBase.

@@ -1,5 +1,5 @@
 
-package edu.wpi.first.wpilibj.templates;
+package com.nutsandcolts.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;

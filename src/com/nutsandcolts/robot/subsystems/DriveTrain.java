@@ -1,4 +1,4 @@
-package edu.wpi.first.wpilibj.templates.subsystems;
+package com.nutsandcolts.robot.subsystems;
 
 /*
  * To change this template, choose Tools | Templates
@@ -8,8 +8,8 @@ package edu.wpi.first.wpilibj.templates.subsystems;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.command.Subsystem;
-import edu.wpi.first.wpilibj.templates.RobotMap;
-import edu.wpi.first.wpilibj.templates.commands.DriveWithJoystick;
+import com.nutsandcolts.robot.RobotMap;
+import com.nutsandcolts.robot.commands.DriveWithJoystick;
 
     
 /**
