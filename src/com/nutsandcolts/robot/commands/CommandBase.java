@@ -1,9 +1,9 @@
 package com.nutsandcolts.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import com.nutsandcolts.robot.OI;
 import com.nutsandcolts.robot.subsystems.DriveTrain;
+import com.nutsandcolts.robot.subsystems.Launcher;
 
 /**
  * The base for all commands. All atomic commands should subclass CommandBase.
@@ -16,6 +16,7 @@ public abstract class CommandBase extends Command {
     public static OI oi;
     // Create a single static instance of all of your subsystems
     public static DriveTrain driveTrain = new DriveTrain();
+    public static Launcher launcher = new Launcher();
 
     public static void init() {
         // This MUST be here. If the OI creates Commands (which it very likely
