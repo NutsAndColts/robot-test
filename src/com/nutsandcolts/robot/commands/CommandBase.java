@@ -8,6 +8,8 @@ import com.nutsandcolts.robot.subsystems.Drive;
 import com.nutsandcolts.robot.subsystems.Intake;
 import com.nutsandcolts.robot.subsystems.Compress;
 import com.nutsandcolts.robot.subsystems.Pneumatics;
+import com.nutsandcolts.robot.OI;
+import com.nutsandcolts.robot.subsystems.Launcher;
 
 public abstract class CommandBase extends Command {
 
@@ -16,6 +18,7 @@ public abstract class CommandBase extends Command {
     public static Intake intake = new Intake();    
     public static Pneumatics pneumatics = new Pneumatics();
     public static Compress compressor = new Compress();
+    public static Launcher launcher = new Launcher();
 
     public static void init() {
         // This MUST be here. If the OI creates Commands (which it very likely
