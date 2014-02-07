@@ -20,4 +20,6 @@ public class RobotMap {
     public static final int rightMotor = 2;
     public static final int launcherMotorOne = 7;
     public static final int launcherMotorTwo = 8;
+    
+    public static final int gyro = 9;
 }

@@ -6,6 +6,7 @@
 package com.nutsandcolts.robot.subsystems;
 
 import com.nutsandcolts.robot.RobotMap;
+import edu.wpi.first.wpilibj.Gyro;
 import edu.wpi.first.wpilibj.Jaguar;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
 
@@ -22,6 +23,8 @@ public class Launcher extends PIDSubsystem {
     private Jaguar motorOne = new Jaguar(RobotMap.launcherMotorOne);
     private Jaguar motorTwo = new Jaguar(RobotMap.launcherMotorTwo);
     
+    private Gyro gyro = new Gyro(RobotMap.gyro);
+    
     // Initialize your subsystem here
     public Launcher() {
         super("Launcher", Kp, Ki, Kd);
@@ -33,10 +36,7 @@ public class Launcher extends PIDSubsystem {
     }
     
     protected double returnPIDInput() {
-        // Return your input value for the PID loop
-        // e.g. a sensor, like a potentiometer:
-        // yourPot.getAverageVoltage() / kYourMaxVoltage;
-        return 0.0;
+        return gyro.pidGet();
     }
     
     protected void usePIDOutput(double output) {
