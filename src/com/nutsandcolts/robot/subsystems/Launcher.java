@@ -5,6 +5,7 @@
  */
 package com.nutsandcolts.robot.subsystems;
 
+import com.nutsandcolts.robot.Preseason2014;
 import com.nutsandcolts.robot.RobotMap;
 import com.nutsandcolts.robot.commands.launcher.ReleaseLauncher;
 import edu.wpi.first.wpilibj.Gyro;
@@ -35,6 +36,8 @@ public class Launcher extends PIDSubsystem {
     }
     
     protected double returnPIDInput() {
+        Preseason2014.disp(2, "Gyro angle: " + gyro.getAngle());
+        Preseason2014.disp(3, "Gyro pidGet: " + gyro.pidGet());
         return gyro.pidGet();
     }
     
