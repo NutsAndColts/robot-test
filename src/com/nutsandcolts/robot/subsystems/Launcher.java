@@ -6,6 +6,7 @@
 package com.nutsandcolts.robot.subsystems;
 
 import com.nutsandcolts.robot.RobotMap;
+import com.nutsandcolts.robot.commands.launcher.ReleaseLauncher;
 import edu.wpi.first.wpilibj.Gyro;
 import edu.wpi.first.wpilibj.Jaguar;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
@@ -25,14 +26,12 @@ public class Launcher extends PIDSubsystem {
     
     private Gyro gyro = new Gyro(RobotMap.gyro);
     
-    // Initialize your subsystem here
     public Launcher() {
         super("Launcher", Kp, Ki, Kd);
     }
     
     public void initDefaultCommand() {
-        // Set the default command for a subsystem here.
-        //setDefaultCommand(new MySpecialCommand());
+        setDefaultCommand(new ReleaseLauncher());
     }
     
     protected double returnPIDInput() {
