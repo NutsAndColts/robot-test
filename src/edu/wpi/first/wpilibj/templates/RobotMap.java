@@ -18,5 +18,8 @@ public class RobotMap {
     // public static final int rangefinderModule = 1;
     public static final int leftMotor = 1;
     public static final int rightMotor = 2;
+    public static final int laserServo = 8;
+    
+    
     public static final int lightSpikes = 3;
 }

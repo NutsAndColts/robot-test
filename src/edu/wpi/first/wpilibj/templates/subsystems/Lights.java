@@ -6,6 +6,7 @@
 package edu.wpi.first.wpilibj.templates.subsystems;
 
 import edu.wpi.first.wpilibj.Relay;
+import edu.wpi.first.wpilibj.Servo;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.templates.RobotMap;
 import edu.wpi.first.wpilibj.templates.commands.LightsOff;
@@ -20,9 +21,11 @@ public class Lights extends Subsystem {
     // here. Call these from Commands.
 
     Relay lights;
+    Servo laser;
     
     public Lights(){
         lights = new Relay(RobotMap.lightSpikes);
+        laser = new Servo(RobotMap.laserServo);
     }
     
     public void set(boolean value){
@@ -35,6 +38,9 @@ public class Lights extends Subsystem {
         lights.set(r);
     };
     
+    public void laserSet(double value){
+        laser.set(-.5*value + .5);
+    }
     
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
