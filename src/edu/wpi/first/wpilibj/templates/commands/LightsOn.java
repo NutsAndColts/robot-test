@@ -6,31 +6,18 @@
 package edu.wpi.first.wpilibj.templates.commands;
 
 
-public class CommandLights extends CommandBase {
+public class LightsOn extends CommandBase {
+
     
-    int light;
-    boolean value;
-    boolean toggle;
-    
-    public CommandLights(int light, boolean value) {
+    public LightsOn() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
         requires(lights);
-        this.light = light;
-        this.value = value;
-        this.toggle = false;
-    }
-    
-    public CommandLights(int light){
-        requires(lights);
-        this.light = light;
-        this.toggle = true;
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        if(toggle) lights.toggle(light);
-        else lights.set(light, value);
+        lights.set(true);
     }
 
     // Called repeatedly when this Command is scheduled to run
