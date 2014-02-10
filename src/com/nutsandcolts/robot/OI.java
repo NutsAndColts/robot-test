@@ -1,9 +1,12 @@
 
 package com.nutsandcolts.robot;
 
+import com.nutsandcolts.robot.commands.FullJaguar;
+import com.nutsandcolts.robot.commands.IdleJaguar;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.DigitalIOButton;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -44,9 +47,15 @@ public class OI {
     
     public static final int JOYSTICK_PORT = 1;
     private Joystick stick;
+    Button full;
+    Button idle;
     
     public OI(){
         stick = new Joystick(JOYSTICK_PORT);
+        full = new JoystickButton(stick,1);
+        idle = new JoystickButton(stick,2);
+        full.whileHeld(new FullJaguar());
+        idle.whileHeld(new IdleJaguar());
     }
     
     public Joystick getJoystick(){
