@@ -7,7 +7,7 @@ package com.nutsandcolts.robot.subsystems;
 
 import com.nutsandcolts.robot.Preseason2014;
 import com.nutsandcolts.robot.RobotMap;
-import com.nutsandcolts.robot.commands.launcher.ReleaseLauncher;
+import com.nutsandcolts.robot.commands.launcher.PowerLauncher;
 import edu.wpi.first.wpilibj.Gyro;
 import edu.wpi.first.wpilibj.Jaguar;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
@@ -22,9 +22,7 @@ public class Launcher extends PIDSubsystem {
     private static final double Ki = 0.0;
     private static final double Kd = 0.0;
     
-    private Jaguar motorOne = new Jaguar(RobotMap.launcherMotorOne);
-    private Jaguar motorTwo = new Jaguar(RobotMap.launcherMotorTwo);
-    
+    private Jaguar motor = new Jaguar(RobotMap.launcherMotor);
     private Gyro gyro = new Gyro(RobotMap.gyro);
     
     public Launcher() {
@@ -32,7 +30,7 @@ public class Launcher extends PIDSubsystem {
     }
     
     public void initDefaultCommand() {
-        setDefaultCommand(new ReleaseLauncher());
+        setDefaultCommand(new PowerLauncher());
     }
     
     protected double returnPIDInput() {
@@ -42,13 +40,15 @@ public class Launcher extends PIDSubsystem {
     }
     
     protected void usePIDOutput(double output) {
-        motorOne.pidWrite(output);
-        motorTwo.pidWrite(output);
+        motor.pidWrite(output);
     }
     
-    public void releaseMotors() {
-        motorOne.set(0);
-        motorTwo.set(0);
+    public void releaseMotor() {
+        motor.set(0);
+    }
+    
+    public void setMotor(double value) {
+        motor.set(value);
     }
     
 }
