@@ -5,6 +5,8 @@
  */
 package com.nutsandcolts.robot.commands;
 
+import com.nutsandcolts.robot.Preseason2014;
+
 /**
  *
  * @author Zach Kimberg
@@ -20,6 +22,7 @@ public class ZJaguar extends CommandBase {
     // Called just before this Command runs the first time
     protected void initialize() {
         jagTester.set(oi.getJoystick().getRawAxis(3));
+        Preseason2014.disp(2,"Z");
     }
 
     // Called repeatedly when this Command is scheduled to run
