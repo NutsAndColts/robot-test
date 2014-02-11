@@ -5,6 +5,8 @@
  */
 package com.nutsandcolts.robot.commands;
 
+import com.nutsandcolts.robot.Preseason2014;
+
 /**
  *
  * @author Zach Kimberg
@@ -20,6 +22,7 @@ public class FullJaguar extends CommandBase {
     // Called just before this Command runs the first time
     protected void initialize(){ 
             jagTester.set(1.0);
+            Preseason2014.disp(2,"Full");
     }
 
     // Called repeatedly when this Command is scheduled to run
