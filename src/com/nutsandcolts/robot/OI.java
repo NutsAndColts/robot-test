@@ -3,6 +3,7 @@ package com.nutsandcolts.robot;
 
 import com.nutsandcolts.robot.commands.FullJaguar;
 import com.nutsandcolts.robot.commands.IdleJaguar;
+import com.nutsandcolts.robot.commands.ZJaguar;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.DigitalIOButton;
@@ -49,13 +50,16 @@ public class OI {
     private Joystick stick;
     Button full;
     Button idle;
+    Button z;
     
     public OI(){
         stick = new Joystick(JOYSTICK_PORT);
         full = new JoystickButton(stick,1);
         idle = new JoystickButton(stick,2);
+        z = new JoystickButton(stick,7);
         full.whileHeld(new FullJaguar());
         idle.whileHeld(new IdleJaguar());
+        z.whileHeld(new ZJaguar());
     }
     
     public Joystick getJoystick(){
