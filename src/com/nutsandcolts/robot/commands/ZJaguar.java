@@ -21,12 +21,13 @@ public class ZJaguar extends CommandBase {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        jagTester.set(oi.getJoystick().getRawAxis(3));
         Preseason2014.disp(2,"Z");
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+        jagTester.set(-.5*oi.getJoystick().getRawAxis(3)+.5);
+        Preseason2014.disp(2,"Z+");
     }
 
     // Make this return true when this Command no longer needs to run execute()

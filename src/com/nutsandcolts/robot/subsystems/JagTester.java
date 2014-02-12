@@ -23,9 +23,8 @@ public class JagTester extends Subsystem {
     Jaguar jag = new Jaguar(RobotMap.testJaguar);
     
     public void set(double value){
-        double v = -.5*value+.5;
-        Preseason2014.disp(3, "V: " + v);
-        jag.set(v);
+        Preseason2014.disp(3, "V: " + value);
+        jag.set(value);
     }
     
     public void initDefaultCommand() {
