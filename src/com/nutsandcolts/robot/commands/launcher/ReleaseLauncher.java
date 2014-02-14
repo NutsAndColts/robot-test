@@ -19,7 +19,7 @@ public class ReleaseLauncher extends CommandBase {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-//        launcher.disable();
+        launcher.disable();
         launcher.releaseMotor();
     }
 
