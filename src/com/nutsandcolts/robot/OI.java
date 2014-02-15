@@ -1,18 +1,18 @@
-
 package com.nutsandcolts.robot;
 
 import com.nutsandcolts.robot.commands.IntakeIdle;
 import com.nutsandcolts.robot.commands.IntakePull;
+
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
-import edu.wpi.first.wpilibj.buttons.JoystickButton;
-import edu.wpi.first.wpilibj.buttons.DigitalIOButton;
-import edu.wpi.first.wpilibj.buttons.JoystickButton;
-import com.nutsandcolts.commands.pneumatics.ActuatePneumatics;
+
 import com.nutsandcolts.commands.pneumatics.IdleCompressor;
 import com.nutsandcolts.commands.pneumatics.RunCompressor;
-import com.nutsandcolts.commands.pneumatics.SetPneumatics;
+import com.nutsandcolts.commands.pneumatics.LiftInTake;
+import com.nutsandcolts.commands.pneumatics.LowerInTake;
+import com.nutsandcolts.commands.pneumatics.StopLift;
 import com.nutsandcolts.robot.commands.IntakePush;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -60,17 +60,18 @@ public class OI {
     Button b5 = new JoystickButton(stick,5);
     Button b6 = new JoystickButton(stick,6);
     Button b7 = new JoystickButton(stick,7);
-    Button b8 = new JoystickButton(stick,8);
     
     public OI() {
         b1.whenPressed(new IntakePull());
         b2.whenPressed(new IntakeIdle());
         b3.whenPressed(new IntakePush());
-        b4.whenPressed(new SetPneumatics(true));
-        b5.whenPressed(new SetPneumatics(false));
-        b6.whenPressed(new ActuatePneumatics(500));
+        
+        b4.whenPressed(new LiftInTake());
+        b5.whenPressed(new LowerInTake());
+        b6.whenPressed(new StopLift());
+        
         b7.whenPressed(new RunCompressor());
-        b8.whenReleased(new IdleCompressor());
+        b7.whenReleased(new IdleCompressor());
     }
     
     public Joystick getJoystick() {

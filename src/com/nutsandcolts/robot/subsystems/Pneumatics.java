@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Relay;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import com.nutsandcolts.robot.RobotMap;
-import com.nutsandcolts.commands.pneumatics.SetPneumatics;
+import com.nutsandcolts.commands.pneumatics.StopLift;
 
 /**
  *
@@ -21,24 +21,26 @@ public class Pneumatics extends Subsystem {
     DoubleSolenoid solenoid = new DoubleSolenoid(RobotMap.solenoidForward, RobotMap.solenoidReverse);
     Relay compressor = new Relay(RobotMap.compressor);
     
-    public void setSolenoid(boolean value) {
-        if(value) {
+    public void setSolenoid(int value) {
+        if(value == 1) {
             solenoid.set(DoubleSolenoid.Value.kForward);
-        } else {
+        } else if(value == -1) {
             solenoid.set(DoubleSolenoid.Value.kReverse);
+        } else {
+            solenoid.set(DoubleSolenoid.Value.kOff);
         }
     }
     
     public void setCompressor(boolean value) {
         if(value) {
-            compressor.set(Relay.Value.kOn);
+            compressor.set(Relay.Value.kForward);
         } else {
             compressor.set(Relay.Value.kOff);
         }
     }
     
     protected void initDefaultCommand() {
-        setDefaultCommand(new SetPneumatics(false));
+        setDefaultCommand(new StopLift());
     }
     
 }
