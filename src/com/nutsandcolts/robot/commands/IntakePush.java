@@ -7,18 +7,18 @@ package com.nutsandcolts.robot.commands;
 
 /**
  *
- * @author Anthony
+ * @author Zach Kimberg
  */
-public class IntakePull extends CommandBase {
+public class IntakePush extends CommandBase {
     
-    public IntakePull() {
+    public IntakePush() {
         // Use requires() here to declare subsystem dependencies
         requires(intake);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        intake.set(1);
+        intake.set(-1);
     }
 
     // Called repeatedly when this Command is scheduled to run
