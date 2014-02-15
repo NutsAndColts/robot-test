@@ -13,7 +13,7 @@ public class IntakeIdle extends CommandBase {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        intake.set(false);
+        intake.set(0);
     }
 
     // Called repeatedly when this Command is scheduled to run

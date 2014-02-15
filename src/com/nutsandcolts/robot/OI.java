@@ -12,6 +12,7 @@ import com.nutsandcolts.commands.pneumatics.ActuatePneumatics;
 import com.nutsandcolts.commands.pneumatics.IdleCompressor;
 import com.nutsandcolts.commands.pneumatics.RunCompressor;
 import com.nutsandcolts.commands.pneumatics.SetPneumatics;
+import com.nutsandcolts.robot.commands.IntakePush;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -58,15 +59,18 @@ public class OI {
     Button b4 = new JoystickButton(stick,4);
     Button b5 = new JoystickButton(stick,5);
     Button b6 = new JoystickButton(stick,6);
+    Button b7 = new JoystickButton(stick,7);
+    Button b8 = new JoystickButton(stick,8);
     
     public OI() {
         b1.whenPressed(new IntakePull());
-        b2.whenPressed(new IntakePull());
-        b3.whenPressed(new SetPneumatics(true));
-        b4.whenPressed(new SetPneumatics(false));
-        b5.whenPressed(new ActuatePneumatics(500));
-        b6.whenPressed(new RunCompressor());
-        b6.whenReleased(new IdleCompressor());
+        b2.whenPressed(new IntakeIdle());
+        b3.whenPressed(new IntakePush());
+        b4.whenPressed(new SetPneumatics(true));
+        b5.whenPressed(new SetPneumatics(false));
+        b6.whenPressed(new ActuatePneumatics(500));
+        b7.whenPressed(new RunCompressor());
+        b8.whenReleased(new IdleCompressor());
     }
     
     public Joystick getJoystick() {
