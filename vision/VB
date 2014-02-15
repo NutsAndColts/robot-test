@@ -1,0 +1,39 @@
+list = GetArrayVariable("BOUNDING_COORDINATES")
+if isArray(list) then
+	if ubound(list) > 0 then
+		targetPixelHeight = 0
+		targetSamples = 0
+		imageHeight = GetVariable("IMAGE_HEIGHT")
+		cameraFieldOfView = 47.5
+		targetHeight=32
+		
+		'leftblob
+		righty = list(1)
+		rightyy = list(7)
+		lefty = list(3)
+		leftyy = list(5)
+		targetPixelHeight = ((lefty - leftyy) + (righty - rightyy))/2
+		totalDistance = (((targetHeight*imageHeight)/targetPixelHeight)/2)/tan(((cameraFieldOfView*3.14159)/180.0)/2.0)
+		SetVariable "DistanceL", CLng((totalDistance*100)/12)/100.0
+	
+	  'rightblob
+	  righta = list(9)
+		rightl = list(15)
+		lefta = list(11)
+		leftl = list(13)
+		targetPixelHeight = ((lefta - leftl) + (righta - rightl))/2
+		totalDistance = (((targetHeight*imageHeight)/targetPixelHeight)/2)/tan(((cameraFieldOfView*3.14159)/180.0)/2.0)
+		SetVariable "DistanceR", CLng((totalDistance*100)/12)/100.0
+	
+	'bottomblob
+	  rightq = list(9)
+		rightw = list(15)
+		leftq = list(11)
+		leftw = list(13)
+		targetPixelHeight = ((leftq - leftw) + (rightq - rightw))/2
+		totalDistance = (((targetHeight*imageHeight)/targetPixelHeight)/2)/tan(((cameraFieldOfView*3.14159)/180.0)/2.0)
+		SetVariable "Distance", CLng((totalDistance*100)/12)/100.0
+	
+
+	end if
+end if

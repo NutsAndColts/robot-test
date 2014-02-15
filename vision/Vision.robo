@@ -55,7 +55,7 @@
         <weight_threshold>0</weight_threshold>
       </filter>
       <filter:2>
-        <count_threshold>2</count_threshold>
+        <count_threshold>3</count_threshold>
         <create_array>1</create_array>
         <filter_id>69</filter_id>
         <invert_count>0</invert_count>
@@ -94,13 +94,56 @@
   <sort_array_on_y>FALSE</sort_array_on_y>
 </Blob_Filter>
 <Blob_Replace>
-  <fill_shape>TRUE</fill_shape>
-  <order_array_on_x>FALSE</order_array_on_x>
+  <color_index>5</color_index>
+  <fill_shape>FALSE</fill_shape>
+  <order_array_on_x>TRUE</order_array_on_x>
   <order_array_on_y>FALSE</order_array_on_y>
-  <overlay_image>Current</overlay_image>
-  <shape_index>15</shape_index>
   <thickness>1</thickness>
 </Blob_Replace>
+<VBScript_Program>
+  <script>list = GetArrayVariable("BOUNDING_COORDINATES")
+if isArray(list) then
+	if ubound(list) &gt; 0 then
+		targetPixelHeight = 0
+		targetSamples = 0
+		imageHeight = GetVariable("IMAGE_HEIGHT")
+		cameraFieldOfView = 47.5
+		targetHeight=32
+		
+		'leftblob
+		righty = list(1)
+		rightyy = list(7)
+		lefty = list(3)
+		leftyy = list(5)
+		targetPixelHeight = ((lefty - leftyy) + (righty - rightyy))/2
+		totalDistance = (((targetHeight*imageHeight)/targetPixelHeight)/2)/tan(((cameraFieldOfView*3.14159)/180.0)/2.0)
+		SetVariable "DistanceL", CLng((totalDistance*100)/12)/100.0
+	
+	  'rightblob
+	  righta = list(9)
+		rightl = list(15)
+		lefta = list(11)
+		leftl = list(13)
+		targetPixelHeight = ((lefta - leftl) + (righta - rightl))/2
+		totalDistance = (((targetHeight*imageHeight)/targetPixelHeight)/2)/tan(((cameraFieldOfView*3.14159)/180.0)/2.0)
+		SetVariable "DistanceR", CLng((totalDistance*100)/12)/100.0
+	
+	'bottomblob
+	  rightq = list(9)
+		rightw = list(15)
+		leftq = list(11)
+		leftw = list(13)
+		targetPixelHeight = ((leftq - leftw) + (rightq - rightw))/2
+		totalDistance = (((targetHeight*imageHeight)/targetPixelHeight)/2)/tan(((cameraFieldOfView*3.14159)/180.0)/2.0)
+		SetVariable "Distance", CLng((totalDistance*100)/12)/100.0
+	
+
+	end if
+end if
+</script>
+  <source_mode>gui</source_mode>
+  <tab_size_index>1</tab_size_index>
+</VBScript_Program>
 <Display_Point>
   <clear_image>FALSE</clear_image>
   <data_source>1</data_source>
@@ -109,28 +152,7 @@
   <shape_index>4</shape_index>
   <shape_size>2</shape_size>
   <thickness>1</thickness>
-  <xy_variable>BFR_COORDINATES</xy_variable>
+  <xy_variable>BOUNDING_COORDINATES</xy_variable>
   <x_coord>100</x_coord>
   <y_coord>100</y_coord>
 </Display_Point>
-<VBScript_Program>
-  <script>list = GetArrayVariable("BFR_COORDINATES")
-if isArray(list) then
-	if ubound(list) &gt; 0 then
-		targetPixelHeight = 0
-		targetSamples = 0
-		imageHeight = GetVariable("IMAGE_HEIGHT")
-		cameraFieldOfView = 47.5
-		targetHeight=32
-		righty = list(1)
-		rightyy = list(7)
-		lefty = list(3)
-		leftyy = list(5)
-		targetPixelHeight = ((lefty - leftyy) + (righty - rightyy))/2
-		totalDistance = (((targetHeight*imageHeight)/targetPixelHeight)/2)/tan(((cameraFieldOfView*3.14159)/180.0)/2.0)
-		SetVariable "Distance", CLng((totalDistance*100)/12)/100.0
-	end if
-end if</script>
-  <source_mode>gui</source_mode>
-  <tab_size_index>1</tab_size_index>
-</VBScript_Program>
