@@ -11,15 +11,16 @@ import com.nutsandcolts.robot.commands.CommandBase;
  *
  * @author Zach Kimberg
  */
-public class IdleCompressor extends CommandBase {
+public class LowerInTake extends CommandBase {
     
-    public IdleCompressor() {
+    public LowerInTake() {
         // Use requires() here to declare subsystem dependencies
-        // e.g. requires(chassis);
+        requires(pneumatics);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+        pneumatics.setSolenoid(-1);
     }
 
     // Called repeatedly when this Command is scheduled to run
