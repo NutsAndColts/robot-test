@@ -6,8 +6,6 @@ import com.nutsandcolts.robot.commands.IntakePull;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 
-import com.nutsandcolts.commands.pneumatics.IdleCompressor;
-import com.nutsandcolts.commands.pneumatics.RunCompressor;
 import com.nutsandcolts.commands.pneumatics.LiftInTake;
 import com.nutsandcolts.commands.pneumatics.LowerInTake;
 import com.nutsandcolts.commands.pneumatics.StopLift;
@@ -59,7 +57,6 @@ public class OI {
     Button b4 = new JoystickButton(stick,4);
     Button b5 = new JoystickButton(stick,5);
     Button b6 = new JoystickButton(stick,6);
-    Button b7 = new JoystickButton(stick,7);
     
     public OI() {
         b1.whenPressed(new IntakePull());
@@ -69,9 +66,6 @@ public class OI {
         b4.whenPressed(new LiftInTake());
         b5.whenPressed(new LowerInTake());
         b6.whenPressed(new StopLift());
-        
-        b7.whenPressed(new RunCompressor());
-        b7.whenReleased(new IdleCompressor());
     }
     
     public Joystick getJoystick() {

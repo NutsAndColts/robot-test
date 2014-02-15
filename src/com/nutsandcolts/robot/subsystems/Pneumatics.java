@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.Relay;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import com.nutsandcolts.robot.RobotMap;
 import com.nutsandcolts.commands.pneumatics.StopLift;
+import edu.wpi.first.wpilibj.Compressor;
 
 /**
  *
@@ -19,7 +20,11 @@ import com.nutsandcolts.commands.pneumatics.StopLift;
 public class Pneumatics extends Subsystem {
 
     DoubleSolenoid solenoid = new DoubleSolenoid(RobotMap.solenoidForward, RobotMap.solenoidReverse);
-    Relay compressor = new Relay(RobotMap.compressor);
+    Compressor compressor = new Compressor(RobotMap.compressorSwitch,RobotMap.compressorSpike);
+    
+    public Pneumatics(){
+        compressor.start();
+    }
     
     public void setSolenoid(int value) {
         if(value == 1) {
@@ -28,14 +33,6 @@ public class Pneumatics extends Subsystem {
             solenoid.set(DoubleSolenoid.Value.kReverse);
         } else {
             solenoid.set(DoubleSolenoid.Value.kOff);
-        }
-    }
-    
-    public void setCompressor(boolean value) {
-        if(value) {
-            compressor.set(Relay.Value.kForward);
-        } else {
-            compressor.set(Relay.Value.kOff);
         }
     }
     
