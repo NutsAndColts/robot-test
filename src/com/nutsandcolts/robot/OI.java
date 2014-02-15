@@ -1,9 +1,11 @@
 
 package com.nutsandcolts.robot;
 
+import com.nutsandcolts.robot.commands.IntakeIdle;
+import com.nutsandcolts.robot.commands.IntakePull;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
-import edu.wpi.first.wpilibj.buttons.DigitalIOButton;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -43,13 +45,16 @@ public class OI {
     // button.whenReleased(new ExampleCommand());
     
     public static final int JOYSTICK_PORT = 1;
-    private Joystick stick;
+    private Joystick stick = new Joystick(JOYSTICK_PORT);
+    Button b1 = new JoystickButton(stick, 3);
+    Button b2 = new JoystickButton(stick, 2);
     
-    public OI(){
-        stick = new Joystick(JOYSTICK_PORT);
+    public OI() {
+        b1.whenPressed(new IntakePull());
+        b2.whenPressed(new IntakeIdle());
     }
     
-    public Joystick getJoystick(){
+    public Joystick getJoystick() {
         return stick;
     }
 }
