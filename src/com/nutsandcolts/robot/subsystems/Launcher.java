@@ -27,6 +27,7 @@ public class Launcher extends PIDSubsystem {
     
     public Launcher() {
         super("Launcher", Kp, Ki, Kd);
+        enable();
     }
     
     public void initDefaultCommand() {
@@ -36,6 +37,7 @@ public class Launcher extends PIDSubsystem {
     protected double returnPIDInput() {
         Preseason2014.disp(2, "Gyro angle: " + gyro.getAngle());
         Preseason2014.disp(3, "Gyro pidGet: " + gyro.pidGet());
+        Preseason2014.disp(4, "millis: " + System.currentTimeMillis());
         return gyro.pidGet();
     }
     
