@@ -23,10 +23,12 @@ public class Intake extends Subsystem {
         intake = new Relay(RobotMap.intakeMotor);
     }
     
-    public void set(boolean value) {
-        Relay.Value r;
-        if(value) {
+    public void set(int value) {
+        Relay.Value r = null;
+        if(value == 1) {
             r = Relay.Value.kForward;
+        } else if(value == -1) {
+            r = Relay.Value.kReverse;
         } else {
             r = Relay.Value.kOff;
         }
