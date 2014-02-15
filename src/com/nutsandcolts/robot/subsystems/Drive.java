@@ -1,40 +1,42 @@
-package com.nutsandcolts.robot.subsystems;
-
 /*
- * To change this template, choose Tools | Templates
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package com.nutsandcolts.robot.subsystems;
 
+import com.nutsandcolts.robot.RobotMap;
+import com.nutsandcolts.robot.commands.DriveIdle;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.command.Subsystem;
-import com.nutsandcolts.robot.RobotMap;
-import com.nutsandcolts.robot.commands.DriveWithJoystick;
 
-    
 /**
  *
- * @author Zach
+ * @author Anthony
  */
-public class DriveTrain extends Subsystem {
+public class Drive extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
-    
-    RobotDrive drive;
 
+    RobotDrive drive;
+    
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
-        //setDefaultCommand(new MySpecialCommand());
-        setDefaultCommand(new DriveWithJoystick());
+        setDefaultCommand(new DriveIdle());
     }
     
-    public DriveTrain(){
+    public Drive() {
         drive = new RobotDrive(RobotMap.leftMotor,RobotMap.rightMotor);
         drive.setSafetyEnabled(false);
     }
     
     public void straight(){
         drive.arcadeDrive(1.0,0.0);
+    }
+    
+    public void stop() {
+        drive.arcadeDrive(0.0,0.0);
     }
     
     public void turnLeft(){

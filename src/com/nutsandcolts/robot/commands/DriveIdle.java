@@ -1,28 +1,28 @@
 /*
- * To change this template, choose Tools | Templates
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 package com.nutsandcolts.robot.commands;
 
 /**
  *
- * @author Zach
+ * @author Anthony
  */
-public class DriveWithJoystick extends CommandBase {
+public class DriveIdle extends CommandBase {
     
-    public DriveWithJoystick() {
+    public DriveIdle() {
         // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
-        requires(driveTrain);
+        requires(drive);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+        drive.stop();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        driveTrain.driveWithJoystick(oi.getJoystick());
     }
 
     // Make this return true when this Command no longer needs to run execute()

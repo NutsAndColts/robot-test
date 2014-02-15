@@ -13,6 +13,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import com.nutsandcolts.robot.commands.CommandBase;
+import com.nutsandcolts.robot.commands.autoCommandGroup;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -34,12 +35,13 @@ public class Preseason2014 extends IterativeRobot {
         //autonomousCommand = new ExampleCommand();
 
         // Initialize all subsystems
+        autonomousCommand = new autoCommandGroup();
         CommandBase.init();
     }
 
     public void autonomousInit() {
         // schedule the autonomous command (example)
-        //autonomousCommand.start();
+        autonomousCommand.start();
     }
 
     /**
