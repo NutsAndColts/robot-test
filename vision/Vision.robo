@@ -1,0 +1,136 @@
+<head><version>2.61.1</version></head>
+<Microsoft_Kinect>
+  <auto_exposure>TRUE</auto_exposure>
+  <auto_white_balance>TRUE</auto_white_balance>
+  <bottom_line>0</bottom_line>
+  <contrast_value>-1</contrast_value>
+  <depth_size_index>1</depth_size_index>
+  <enable_accelerometers>FALSE</enable_accelerometers>
+  <exposure_value>654</exposure_value>
+  <flip_depth>FALSE</flip_depth>
+  <flip_rgb>FALSE</flip_rgb>
+  <gamma>1.0</gamma>
+  <ir_intensity_value>30</ir_intensity_value>
+  <led_value>1</led_value>
+  <max_threshold>2047</max_threshold>
+  <merge_frames>FALSE</merge_frames>
+  <min_threshold>160</min_threshold>
+  <motor_pitch_value>64</motor_pitch_value>
+  <request_depth>FALSE</request_depth>
+  <request_ir>TRUE</request_ir>
+  <request_rgb>FALSE</request_rgb>
+  <rgb_size_index>1</rgb_size_index>
+  <saturation_value>6</saturation_value>
+  <show_depth>TRUE</show_depth>
+  <show_rgb>TRUE</show_rgb>
+  <smooth>0</smooth>
+  <top_line>480</top_line>
+</Microsoft_Kinect>
+<Adaptive_Threshold>
+  <channel_type>1</channel_type>
+  <filter_size>7</filter_size>
+  <max_threshold>255</max_threshold>
+  <mean_offset>5</mean_offset>
+  <min_threshold>255</min_threshold>
+  <result_type>2</result_type>
+</Adaptive_Threshold>
+<Close>
+  <close_borders>FALSE</close_borders>
+  <dilate_count>2</dilate_count>
+  <erode_count>2</erode_count>
+  <restrict_dilation>FALSE</restrict_dilation>
+  <symmetrical>TRUE</symmetrical>
+</Close>
+<Blob_Filter>
+  <create_blob_array_variable>TRUE</create_blob_array_variable>
+  <filters>
+    <tab>
+      <filter>
+        <count_threshold>0</count_threshold>
+        <create_array>0</create_array>
+        <filter_id>8</filter_id>
+        <invert_count>0</invert_count>
+        <invert_threshold>0</invert_threshold>
+        <minimum_size>100</minimum_size>
+        <weight_threshold>0</weight_threshold>
+      </filter>
+      <filter:2>
+        <count_threshold>2</count_threshold>
+        <create_array>1</create_array>
+        <filter_id>69</filter_id>
+        <invert_count>0</invert_count>
+        <invert_threshold>0</invert_threshold>
+        <weight_threshold>0</weight_threshold>
+      </filter:2>
+    </tab>
+    <tab:2>
+      <filter>
+        <count_threshold>1</count_threshold>
+        <create_array>1</create_array>
+        <filter_id>20</filter_id>
+        <invert_count>0</invert_count>
+        <invert_threshold>0</invert_threshold>
+        <weight_threshold>0</weight_threshold>
+      </filter>
+    </tab:2>
+    <tab:3>
+      <filter>
+        <count_threshold>2</count_threshold>
+        <create_array>1</create_array>
+        <filter_id>39</filter_id>
+        <invert_count>0</invert_count>
+        <invert_threshold>0</invert_threshold>
+        <weight_threshold>0</weight_threshold>
+      </filter>
+    </tab:3>
+    <tab:4/>
+    <tab:5/>
+    <tab:6/>
+  </filters>
+  <largest_is_background>FALSE</largest_is_background>
+  <show_mode>2</show_mode>
+  <show_weights>FALSE</show_weights>
+  <sort_array_on_x>FALSE</sort_array_on_x>
+  <sort_array_on_y>FALSE</sort_array_on_y>
+</Blob_Filter>
+<Blob_Replace>
+  <fill_shape>TRUE</fill_shape>
+  <order_array_on_x>FALSE</order_array_on_x>
+  <order_array_on_y>FALSE</order_array_on_y>
+  <overlay_image>Current</overlay_image>
+  <shape_index>15</shape_index>
+  <thickness>1</thickness>
+</Blob_Replace>
+<Display_Point>
+  <clear_image>FALSE</clear_image>
+  <data_source>1</data_source>
+  <display_as_annotation>FALSE</display_as_annotation>
+  <shape_color>red</shape_color>
+  <shape_index>4</shape_index>
+  <shape_size>2</shape_size>
+  <thickness>1</thickness>
+  <xy_variable>BFR_COORDINATES</xy_variable>
+  <x_coord>100</x_coord>
+  <y_coord>100</y_coord>
+</Display_Point>
+<VBScript_Program>
+  <script>list = GetArrayVariable("BFR_COORDINATES")
+if isArray(list) then
+	if ubound(list) &gt; 0 then
+		targetPixelHeight = 0
+		targetSamples = 0
+		imageHeight = GetVariable("IMAGE_HEIGHT")
+		cameraFieldOfView = 47.5
+		targetHeight=32
+		righty = list(1)
+		rightyy = list(7)
+		lefty = list(3)
+		leftyy = list(5)
+		targetPixelHeight = ((lefty - leftyy) + (righty - rightyy))/2
+		totalDistance = (((targetHeight*imageHeight)/targetPixelHeight)/2)/tan(((cameraFieldOfView*3.14159)/180.0)/2.0)
+		SetVariable "Distance", CLng((totalDistance*100)/12)/100.0
+	end if
+end if</script>
+  <source_mode>gui</source_mode>
+  <tab_size_index>1</tab_size_index>
+</VBScript_Program>
