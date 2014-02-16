@@ -15,11 +15,12 @@ public class IdleCompressor extends CommandBase {
     
     public IdleCompressor() {
         // Use requires() here to declare subsystem dependencies
-        // e.g. requires(chassis);
+        requires(compressor);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+        compressor.setCompressor(false);
     }
 
     // Called repeatedly when this Command is scheduled to run
