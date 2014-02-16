@@ -19,7 +19,6 @@ import com.nutsandcolts.commands.pneumatics.StopLift;
 public class Pneumatics extends Subsystem {
 
     DoubleSolenoid solenoid = new DoubleSolenoid(RobotMap.solenoidForward, RobotMap.solenoidReverse);
-    Relay compressor = new Relay(RobotMap.compressor);
     
     public void setSolenoid(int value) {
         if(value == 1) {
@@ -28,14 +27,6 @@ public class Pneumatics extends Subsystem {
             solenoid.set(DoubleSolenoid.Value.kReverse);
         } else {
             solenoid.set(DoubleSolenoid.Value.kOff);
-        }
-    }
-    
-    public void setCompressor(boolean value) {
-        if(value) {
-            compressor.set(Relay.Value.kForward);
-        } else {
-            compressor.set(Relay.Value.kOff);
         }
     }
     

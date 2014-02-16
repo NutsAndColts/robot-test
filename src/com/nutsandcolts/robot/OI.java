@@ -60,6 +60,7 @@ public class OI {
     Button b5 = new JoystickButton(stick,5);
     Button b6 = new JoystickButton(stick,6);
     Button b7 = new JoystickButton(stick,7);
+    Button b8 = new JoystickButton(stick,8);
     
     public OI() {
         b1.whenPressed(new IntakePull());
@@ -71,7 +72,7 @@ public class OI {
         b6.whenPressed(new StopLift());
         
         b7.whenPressed(new RunCompressor());
-        b7.whenReleased(new IdleCompressor());
+        b8.whenReleased(new IdleCompressor());
     }
     
     public Joystick getJoystick() {
