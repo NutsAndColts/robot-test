@@ -107,6 +107,7 @@ if isArray(list) then
 		SetVariable "Distance"+CStr(i), 0.0
 		SetVariable "Aspect"+CStr(i), 0.0
 		SetVariable "MidX"+CStr(i), 0.0
+		SetVariable "WidthX"+CStr(i), 0.0
 	Next
 	if ubound(list) &gt; 0 then
 		targetPixelHeight = 0
@@ -121,9 +122,10 @@ if isArray(list) then
 			rightyy = list(i*8-1)
 			lefty = list(i*8-5)
 			leftyy = list(i*8-3)
-			rightx = list(i*8-8)
-			leftx = list(i*8-4)
-			SetVariable "Aspect"+CStr(i), ((leftyy-lefty)/(rightx-leftx))
+			leftx = list(i*8-8)
+			rightx = list(i*8-4)
+			SetVariable "Aspect"+CStr(i), ((lefty-leftyy)/(rightx-leftx))
+			SetVariable "WidthX"+CStr(i), (rightx-leftx)
 			targetPixelHeight = ((lefty - leftyy) + (righty - rightyy))/2
 			totalDistance = (((targetHeight*imageHeight)/targetPixelHeight)/2)/tan(((cameraFieldOfView*3.14159)/180.0)/2.0)
 			SetVariable "Distance"+CStr(i), CLng((totalDistance*100)/12)/100.0
