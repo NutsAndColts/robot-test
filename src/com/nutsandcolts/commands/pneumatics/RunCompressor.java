@@ -14,12 +14,12 @@ import com.nutsandcolts.robot.commands.CommandBase;
 public class RunCompressor extends CommandBase {
     
     public RunCompressor() {
-        requires(pneumatics);
+        requires(compressor);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        pneumatics.setCompressor(true);
+        compressor.setCompressor(true);
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -33,7 +33,7 @@ public class RunCompressor extends CommandBase {
 
     // Called once after isFinished returns true
     protected void end() {
-        pneumatics.setCompressor(false);
+        compressor.setCompressor(false);
     }
 
     // Called when another command which requires one or more of the same
