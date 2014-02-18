@@ -16,12 +16,12 @@ public class IdleJaguar extends CommandBase {
     public IdleJaguar() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-        requires(jagTester);
+        requires(launcher);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        jagTester.set(0.0);
+        launcher.set(0.0);
     }
 
     // Called repeatedly when this Command is scheduled to run

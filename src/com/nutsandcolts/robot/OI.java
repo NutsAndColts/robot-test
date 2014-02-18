@@ -10,6 +10,7 @@ import com.nutsandcolts.robot.commands.IntakeIdle;
 import com.nutsandcolts.robot.commands.IntakePull;
 import com.nutsandcolts.robot.commands.FullJaguar;
 import com.nutsandcolts.robot.commands.IdleJaguar;
+import com.nutsandcolts.robot.commands.Launcher.PullLauncher;
 import com.nutsandcolts.robot.commands.ZJaguar;
 
 import edu.wpi.first.wpilibj.Joystick;
@@ -34,9 +35,7 @@ public class OI {
     Button z  = new JoystickButton(stick,7);
     Button b8 = new JoystickButton(stick,8);
     Button b9 = new JoystickButton(stick,9);
-    
-    Button fullJag = new JoystickButton(stick,9);
-    Button idleJag = new JoystickButton(stick,10);
+    Button b11 = new JoystickButton(stick, 11);
     
     public OI() {
         b1.whenPressed(new IntakePull());
@@ -47,11 +46,11 @@ public class OI {
         b5.whenPressed(new LowerInTake());
         b6.whenPressed(new StopLift());
         
+        b11.whenPressed(new PullLauncher());
+        
         b8.whenPressed(new RunCompressor());
         b9.whenReleased(new IdleCompressor());
         
-        fullJag.whileHeld(new FullJaguar());
-        idleJag.whileHeld(new IdleJaguar());
         z.whileHeld(new ZJaguar());
     }
     

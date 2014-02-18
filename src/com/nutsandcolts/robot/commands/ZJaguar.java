@@ -16,7 +16,7 @@ public class ZJaguar extends CommandBase {
     public ZJaguar() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-        requires(jagTester);
+        requires(launcher);
     }
 
     // Called just before this Command runs the first time
@@ -25,7 +25,7 @@ public class ZJaguar extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        jagTester.set(-.5*oi.getJoystick().getRawAxis(3)+.5);
+        launcher.set(-.5*oi.getJoystick().getRawAxis(3)+.5);
     }
 
     // Make this return true when this Command no longer needs to run execute()
