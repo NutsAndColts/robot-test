@@ -10,11 +10,8 @@ import com.nutsandcolts.robot.commands.IntakeIdle;
 import com.nutsandcolts.robot.commands.IntakePull;
 import com.nutsandcolts.robot.commands.FullJaguar;
 import com.nutsandcolts.robot.commands.IdleJaguar;
-<<<<<<< HEAD
-
-=======
 import com.nutsandcolts.robot.commands.ZJaguar;
->>>>>>> Update to only work in positive direction, default to Idle, and run Z when button 7 is pressed.  Also, Displays to screen
+
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -26,7 +23,6 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 public class OI {
     
     public static final int JOYSTICK_PORT = 1;
-<<<<<<< HEAD
     private Joystick stick = new Joystick(JOYSTICK_PORT);
     
     Button b1 = new JoystickButton(stick,1);
