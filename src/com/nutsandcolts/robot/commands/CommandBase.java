@@ -6,7 +6,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import com.nutsandcolts.robot.OI;
 import com.nutsandcolts.robot.subsystems.Drive;
 import com.nutsandcolts.robot.subsystems.Intake;
-import com.nutsandcolts.robot.subsystems.Compressor;
+import com.nutsandcolts.robot.subsystems.Compress;
 import com.nutsandcolts.robot.subsystems.Pneumatics;
 
 public abstract class CommandBase extends Command {
@@ -15,7 +15,7 @@ public abstract class CommandBase extends Command {
     public static Drive drive = new Drive();
     public static Intake intake = new Intake();    
     public static Pneumatics pneumatics = new Pneumatics();
-    public static Compressor compressor = new Compressor();
+    public static Compress compressor = new Compress();
 
     public static void init() {
         // This MUST be here. If the OI creates Commands (which it very likely

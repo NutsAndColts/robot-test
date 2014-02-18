@@ -7,6 +7,7 @@ package com.nutsandcolts.robot.subsystems;
 
 import com.nutsandcolts.commands.pneumatics.IdleCompressor;
 import com.nutsandcolts.robot.RobotMap;
+import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.Relay;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
@@ -14,17 +15,17 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  *
  * @author Anthony
  */
-public class Compressor extends Subsystem {
+public class Compress extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 
-    Relay compressor = new Relay(RobotMap.compressor);
+    Compressor compressor = new Compressor(RobotMap.compressorSwitch,RobotMap.compressorSpike);
     
     public void setCompressor(boolean value) {
         if(value) {
-            compressor.set(Relay.Value.kForward);
+            compressor.start();
         } else {
-            compressor.set(Relay.Value.kOff);
+            compressor.stop();
         }
     }
         
