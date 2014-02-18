@@ -18,7 +18,7 @@ public abstract class CommandBase extends Command {
     public static Intake intake = new Intake();    
     public static Pneumatics pneumatics = new Pneumatics();
     public static Compress compressor = new Compress();
-    public static Launcher jagTester = new Launcher();
+    public static Launcher launcher = new Launcher();
 
     public static void init() {
         // This MUST be here. If the OI creates Commands (which it very likely
