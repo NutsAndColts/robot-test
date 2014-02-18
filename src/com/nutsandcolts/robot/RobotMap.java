@@ -26,6 +26,7 @@ public class RobotMap {
     public static final int solenoidReverse = 2;
     
     public static final int compressorSpike = 1;
+    public static final int limitSwitch = 1;
     
     public static final int compressorSwitch = 1;
     
