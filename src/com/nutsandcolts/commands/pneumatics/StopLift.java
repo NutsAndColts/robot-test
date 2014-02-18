@@ -21,6 +21,7 @@ public class StopLift extends CommandBase {
     // Called just before this Command runs the first time
     protected void initialize() {
         pneumatics.setSolenoid(0);
+        pneumatics.setStopper(true);
     }
 
     // Called repeatedly when this Command is scheduled to run

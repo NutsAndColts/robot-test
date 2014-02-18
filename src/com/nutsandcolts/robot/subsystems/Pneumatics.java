@@ -21,6 +21,7 @@ public class Pneumatics extends Subsystem {
 
     DoubleSolenoid solenoid = new DoubleSolenoid(RobotMap.solenoidForward, RobotMap.solenoidReverse);
     Compressor compressor = new Compressor(RobotMap.compressorSwitch,RobotMap.compressorSpike);
+    Relay stopper = new Relay(RobotMap.stopper);
     
     public Pneumatics(){
         compressor.start();
@@ -33,6 +34,14 @@ public class Pneumatics extends Subsystem {
             solenoid.set(DoubleSolenoid.Value.kReverse);
         } else {
             solenoid.set(DoubleSolenoid.Value.kOff);
+        }
+    }
+    
+    public void setStopper(boolean value){
+        if(value == true) {
+            stopper.set(Relay.Value.kForward);
+        } else {
+            stopper.set(Relay.Value.kOff);
         }
     }
     

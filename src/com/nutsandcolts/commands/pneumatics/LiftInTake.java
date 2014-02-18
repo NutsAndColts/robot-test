@@ -14,6 +14,7 @@ public class LiftInTake extends CommandBase {
 
     protected void initialize() {
         pneumatics.setSolenoid(1);
+        pneumatics.setStopper(true);
     }
 
     protected void execute() {

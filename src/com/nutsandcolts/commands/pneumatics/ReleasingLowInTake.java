@@ -11,17 +11,18 @@ import com.nutsandcolts.robot.commands.CommandBase;
  *
  * @author Zach Kimberg
  */
-public class LowerInTake extends CommandBase {
+public class ReleasingLowInTake extends CommandBase {
     
-    public LowerInTake() {
+    public ReleasingLowInTake() {
         // Use requires() here to declare subsystem dependencies
+        // eg. requires(chassis);
         requires(pneumatics);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
         pneumatics.setSolenoid(-1);
-        pneumatics.setStopper(true);
+        pneumatics.setStopper(false);
     }
 
     // Called repeatedly when this Command is scheduled to run

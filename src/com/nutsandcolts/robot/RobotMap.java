@@ -28,6 +28,7 @@ public class RobotMap {
     
     //Relays
     public static final int compressorSpike = 1;
+    public static final int stopper = 2;
     
     //Digital IO
     public static final int compressorSwitch = 1;
