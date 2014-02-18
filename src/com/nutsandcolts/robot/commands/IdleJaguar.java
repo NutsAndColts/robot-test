@@ -22,7 +22,6 @@ public class IdleJaguar extends CommandBase {
     // Called just before this Command runs the first time
     protected void initialize() {
         jagTester.set(0.0);
-        Preseason2014.disp(2,"Idle");
     }
 
     // Called repeatedly when this Command is scheduled to run
