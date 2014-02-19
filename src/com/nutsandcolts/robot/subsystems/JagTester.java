@@ -8,7 +8,6 @@ package com.nutsandcolts.robot.subsystems;
 import com.nutsandcolts.robot.Preseason2014;
 import com.nutsandcolts.robot.RobotMap;
 import com.nutsandcolts.robot.commands.IdleJaguar;
-import com.nutsandcolts.robot.commands.ZJaguar;
 import edu.wpi.first.wpilibj.Gyro;
 import edu.wpi.first.wpilibj.Jaguar;
 import edu.wpi.first.wpilibj.command.Subsystem;

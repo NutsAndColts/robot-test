@@ -26,6 +26,7 @@ public class ZJaguar extends CommandBase {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
         jagTester.set(-.5*oi.getJoystick().getRawAxis(3)+.5);
+        jagTester.printGyro();
     }
 
     // Make this return true when this Command no longer needs to run execute()
