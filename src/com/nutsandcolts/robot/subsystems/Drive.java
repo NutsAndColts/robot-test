@@ -21,6 +21,7 @@ public class Drive extends Subsystem {
     // here. Call these from Commands.
 
     RobotDrive drive;
+    boolean reversed;
     
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
@@ -28,7 +29,20 @@ public class Drive extends Subsystem {
     }
     
     public Drive() {
-        drive = new RobotDrive(RobotMap.leftMotor,RobotMap.rightMotor);
+        reversed = true;
+        reverse();
+    }
+    
+    public void reverse(){
+        if(reversed){
+            //Make normal
+            drive = new RobotDrive(RobotMap.leftMotor,RobotMap.rightMotor);
+        } else {
+            //Make reversed
+            drive = new RobotDrive(RobotMap.rightMotor,RobotMap.leftMotor);
+            drive.setInvertedMotor(RobotDrive.MotorType.kFrontLeft,true);
+            drive.setInvertedMotor(RobotDrive.MotorType.kFrontRight,true);
+        }
         drive.setSafetyEnabled(false);
     }
     
