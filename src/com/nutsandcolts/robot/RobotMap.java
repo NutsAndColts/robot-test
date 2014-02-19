@@ -29,5 +29,5 @@ public class RobotMap {
     
     public static final int compressorSwitch = 1;
     
-    public static final int gyro = 1;
+    public static final int gyro = 2;
 }

@@ -35,7 +35,7 @@ public class OI {
     Button b8 = new JoystickButton(stick,8);
     Button b9 = new JoystickButton(stick,9);
     
-    Button fullJag = new JoystickButton(stick,9);
+    Button fullJag = new JoystickButton(stick,11);
     Button idleJag = new JoystickButton(stick,10);
     
     public OI() {
