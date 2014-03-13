@@ -24,6 +24,9 @@ public class Vision implements ISensor, PIDSource{
     private static double seperation;
     private static double wallDistance;
     
+    /**
+     * Load data from SmartDashboard to compute
+     */
     private void load(){
         count = (int) SmartDashboard.getNumber("BLOB_COUNT");
         for(int i=0; i<count; i++){
@@ -34,6 +37,10 @@ public class Vision implements ISensor, PIDSource{
         }
     }
     
+    /**
+     * Returns only the strips that are vertically oriented
+     * @return 
+     */
     private int[] getVertical(){
         if(count<2) return new int[0];
         int numVertical = 0;
@@ -52,6 +59,10 @@ public class Vision implements ISensor, PIDSource{
         }
     }
     
+    /**
+     * ???
+     * @param a 
+     */
     private void sortVertical(int[] a){
         for(int i=0; i<a.length-1; i++){
             int maxPosition = i;
@@ -66,6 +77,12 @@ public class Vision implements ISensor, PIDSource{
         }
     }
     
+    /**
+     * Basic power function
+     * @param base
+     * @param exponent
+     * @return 
+     */
     private double power(double base, int exponent){
         if(exponent == 1) return base;
         if(exponent%2==0){
@@ -78,6 +95,10 @@ public class Vision implements ISensor, PIDSource{
         }
     }
     
+    /**
+     * Computes wallDistance
+     * @return 
+     */
     public double findWallDistance(){
         load();
         int[] vertical = getVertical();
@@ -86,7 +107,7 @@ public class Vision implements ISensor, PIDSource{
         int right = vertical[1];
         seperation = midx[right]-midx[left]-(widths[left]+widths[right])/2;
         
-        double t1 = power(distances[left],4);
+        double t1 = power(distances[left], 4);
         double t2 = 2*power(distances[left],2)*power(distances[right],2);
         double t3 = 2*power(distances[left],2)*power(seperation,2);
         double t4 = power(distances[right],4);
