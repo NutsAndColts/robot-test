@@ -11,9 +11,9 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
  *
  * @author Zach Kimberg
  */
-public class Launch extends CommandGroup {
+public class LaunchDown extends CommandGroup {
 	
-	public Launch() {
+	public LaunchDown() {
         // Add Commands here:
 		// e.g. addSequential(new Command1());
 		//      addSequential(new Command2());
@@ -29,7 +29,7 @@ public class Launch extends CommandGroup {
 		// e.g. if Command1 requires chassis, and Command2 requires arm,
 		// a CommandGroup containing them would require both the chassis and the
 		// arm.
-		addSequential(new LaunchDown());
-		addSequential(new LaunchRelease());
+		addParallel(new IntakeUp());
+		addSequential(new CatapultBack());
 	}
 }

@@ -25,9 +25,6 @@ public class JagTester extends Subsystem {
     
     public void set(double value){
         jag.set(value);
-    }
-    
-    public void printGyro(){
         Preseason2014.disp(2,"Angle: "+gyro.getAngle());
     }
     
@@ -36,4 +33,8 @@ public class JagTester extends Subsystem {
         //setDefaultCommand(new MySpecialCommand());
         setDefaultCommand(new IdleJaguar());
     }
+
+	public boolean isBack() {
+		return gyro.getAngle()>40;
+	}
 }
