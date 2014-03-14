@@ -3,28 +3,27 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.nutsandcolts.commands.pneumatics;
-
-import com.nutsandcolts.robot.commands.CommandBase;
+package com.nutsandcolts.robot.commands;
 
 /**
  *
- * @author Zach Kimberg
+ * @author Anthony
  */
-public class IdleCompressor extends CommandBase {
+public class DriveIntakeWithJoystick extends CommandBase {
     
-    public IdleCompressor() {
+    public DriveIntakeWithJoystick() {
         // Use requires() here to declare subsystem dependencies
-        requires(compressor);
+        requires(intake);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        compressor.setCompressor(false);
+        intake.driveWithJoystick(oi.getJoystick2());
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+        intake.driveWithJoystick(oi.getJoystick2());
     }
 
     // Make this return true when this Command no longer needs to run execute()

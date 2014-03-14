@@ -13,7 +13,6 @@ public class DriveWithJoystick extends CommandBase {
     
     public DriveWithJoystick() {
         // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
         requires(drive);
     }
 
@@ -23,7 +22,7 @@ public class DriveWithJoystick extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        drive.driveWithJoystick(oi.getJoystick());
+        drive.driveWithJoystick(oi.getJoystick1());
     }
 
     // Make this return true when this Command no longer needs to run execute()

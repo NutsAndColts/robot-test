@@ -1,10 +1,5 @@
 package com.nutsandcolts.robot;
 
-import com.nutsandcolts.commands.pneumatics.IdleCompressor;
-import com.nutsandcolts.commands.pneumatics.RunCompressor;
-import com.nutsandcolts.commands.pneumatics.LiftInTake;
-import com.nutsandcolts.commands.pneumatics.LowerInTake;
-import com.nutsandcolts.commands.pneumatics.StopLift;
 import com.nutsandcolts.robot.commands.IntakePush;
 import com.nutsandcolts.robot.commands.IntakeIdle;
 import com.nutsandcolts.robot.commands.IntakePull;
@@ -22,41 +17,35 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
  */
 public class OI {
     
-    public static final int JOYSTICK_PORT = 1;
-    private Joystick stick = new Joystick(JOYSTICK_PORT);
+    public static final int JOYSTICK_PORT1 = 1;
+    public static final int JOYSTICK_PORT2 = 2;
+    private Joystick stick1 = new Joystick(JOYSTICK_PORT1);
+    private Joystick stick2 = new Joystick(JOYSTICK_PORT2);
     
-    Button b1 = new JoystickButton(stick,1);
-    Button b2 = new JoystickButton(stick,2);
-    Button b3 = new JoystickButton(stick,3);
-    Button b4 = new JoystickButton(stick,4);
-    Button b5 = new JoystickButton(stick,5);
-    Button b6 = new JoystickButton(stick,6);
-    Button z  = new JoystickButton(stick,7);
-    Button b8 = new JoystickButton(stick,8);
-    Button b9 = new JoystickButton(stick,9);
+    Button b1 = new JoystickButton(stick1,1);
+    Button b2 = new JoystickButton(stick1,2);
+    Button b3 = new JoystickButton(stick1,3);
     
-    Button fullJag = new JoystickButton(stick,11);
-    Button idleJag = new JoystickButton(stick,10);
+    Button z  = new JoystickButton(stick1,7); 
+    Button fullJag = new JoystickButton(stick1,11);
+    Button idleJag = new JoystickButton(stick1,10);
     
     public OI() {
         b1.whenPressed(new IntakePull());
         b2.whenPressed(new IntakeIdle());
         b3.whenPressed(new IntakePush());
         
-        b4.whenPressed(new LiftInTake());
-        b5.whenPressed(new LowerInTake());
-        b6.whenPressed(new StopLift());
-        
-        b8.whenPressed(new RunCompressor());
-        b9.whenReleased(new IdleCompressor());
-        
         fullJag.whileHeld(new FullJaguar());
         idleJag.whileHeld(new IdleJaguar());
         z.whileHeld(new ZJaguar());
     }
     
-    public Joystick getJoystick() {
-        return stick;
+    public Joystick getJoystick1() {
+        return stick1;
+    }
+
+    public Joystick getJoystick2() {
+        return stick2;
     }
     
 }

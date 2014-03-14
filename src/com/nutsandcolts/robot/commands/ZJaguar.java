@@ -5,8 +5,6 @@
  */
 package com.nutsandcolts.robot.commands;
 
-import com.nutsandcolts.robot.Preseason2014;
-
 /**
  *
  * @author Zach Kimberg
@@ -25,7 +23,7 @@ public class ZJaguar extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        jagTester.set(-.5*oi.getJoystick().getRawAxis(3)+.5);
+        jagTester.set(-.5 * oi.getJoystick2().getRawAxis(3) + .5);
         jagTester.printGyro();
     }
 
