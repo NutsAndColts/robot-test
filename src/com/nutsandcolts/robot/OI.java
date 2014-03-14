@@ -22,22 +22,22 @@ public class OI {
     private Joystick stick1 = new Joystick(JOYSTICK_PORT1);
     private Joystick stick2 = new Joystick(JOYSTICK_PORT2);
     
-    Button b1 = new JoystickButton(stick1,1);
-    Button b2 = new JoystickButton(stick1,2);
-    Button b3 = new JoystickButton(stick1,3);
+    Button intakePull = new JoystickButton(stick1,9);
+    Button intakeIdle = new JoystickButton(stick1,10);
+    Button intakePush = new JoystickButton(stick1,11);
     
-    Button z  = new JoystickButton(stick1,7); 
-    Button fullJag = new JoystickButton(stick1,11);
-    Button idleJag = new JoystickButton(stick1,10);
+    Button zJaguar  = new JoystickButton(stick1,7); 
+    Button fullJag = new JoystickButton(stick1,3);
+    Button idleJag = new JoystickButton(stick1,2);
     
     public OI() {
-        b1.whenPressed(new IntakePull());
-        b2.whenPressed(new IntakeIdle());
-        b3.whenPressed(new IntakePush());
+        intakePull.whenPressed(new IntakePull());
+        intakeIdle.whenPressed(new IntakeIdle());
+        intakePush.whenPressed(new IntakePush());
         
         fullJag.whileHeld(new FullJaguar());
         idleJag.whileHeld(new IdleJaguar());
-        z.whileHeld(new ZJaguar());
+        zJaguar.whileHeld(new ZJaguar());
     }
     
     public Joystick getJoystick1() {
