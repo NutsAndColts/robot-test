@@ -32,5 +32,6 @@ public class Launch extends CommandGroup {
 		//addSequential(new ResetGyro());
 		addSequential(new LaunchDown());
 		addSequential(new LaunchRelease());
+		addSequential(new LaunchStop());
 	}
 }

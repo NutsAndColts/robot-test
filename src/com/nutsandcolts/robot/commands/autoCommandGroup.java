@@ -30,6 +30,8 @@ public class autoCommandGroup extends CommandGroup {
         // a CommandGroup containing them would require both the chassis and the
         // arm.
         
+	addParallel(new Launch());
+	addSequential(new DriveIdle(),.3);
         addSequential(new DriveForward(), 1.5);
         addSequential(new DriveIdle());
     }
