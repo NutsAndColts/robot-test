@@ -27,6 +27,10 @@ public class JagTester extends Subsystem {
         jag.set(value);
         Preseason2014.disp(2,"Angle: "+gyro.getAngle());
     }
+
+    public void resetGyro(){
+	    gyro.reset();
+    }
     
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.

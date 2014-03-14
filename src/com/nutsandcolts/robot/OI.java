@@ -8,6 +8,7 @@ import com.nutsandcolts.robot.commands.FullJaguar;
 import com.nutsandcolts.robot.commands.IdleJaguar;
 import com.nutsandcolts.robot.commands.Launch;
 import com.nutsandcolts.robot.commands.LaunchStop;
+import com.nutsandcolts.robot.commands.ResetGyro;
 import com.nutsandcolts.robot.commands.ZJaguar;
 
 import edu.wpi.first.wpilibj.Joystick;
@@ -35,6 +36,7 @@ public class OI {
     
     Button launch = new JoystickButton(stick2,1);
     
+    Button resetGyro = new JoystickButton(stick2,8);
     Button zJaguar  = new JoystickButton(stick2,7); 
     Button fullJag = new JoystickButton(stick2,2);
     Button idleJag = new JoystickButton(stick2,3);
@@ -49,6 +51,7 @@ public class OI {
 	
 	launch.whenPressed(new Launch());
 	
+	resetGyro.whenPressed(new ResetGyro());
         fullJag.whileHeld(new FullJaguar());
         idleJag.whileHeld(new IdleJaguar());
         zJaguar.whileHeld(new ZJaguar());
