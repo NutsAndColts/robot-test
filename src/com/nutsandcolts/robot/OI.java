@@ -1,5 +1,6 @@
 package com.nutsandcolts.robot;
 
+import com.nutsandcolts.robot.commands.DriveWithJoystick;
 import com.nutsandcolts.robot.commands.IntakeUp;
 import com.nutsandcolts.robot.commands.IntakeIdle;
 import com.nutsandcolts.robot.commands.IntakeDown;
@@ -23,6 +24,8 @@ public class OI {
     private Joystick stick1 = new Joystick(JOYSTICK_PORT1);
     private Joystick stick2 = new Joystick(JOYSTICK_PORT2);
     
+    Button resetDriving = new JoystickButton(stick1,10);
+    
     Button intakeDown = new JoystickButton(stick2,9);
     Button intakeIdle = new JoystickButton(stick2,10);
     Button intakeUp = new JoystickButton(stick2,11);
@@ -34,6 +37,7 @@ public class OI {
     Button idleJag = new JoystickButton(stick2,3);
     
     public OI() {
+	resetDriving.whenPressed(new DriveWithJoystick());
         intakeDown.whileHeld(new IntakeDown());
         intakeIdle.whileHeld(new IntakeIdle());
         intakeUp.whileHeld(new IntakeUp());

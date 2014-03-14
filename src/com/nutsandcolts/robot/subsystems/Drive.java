@@ -32,7 +32,7 @@ public class Drive extends Subsystem {
     }
     
     public void straight(){
-        drive.arcadeDrive(1.0, 0.0);
+        drive.arcadeDrive(-1.0, 0.0);
     }
     
     public void stop() {

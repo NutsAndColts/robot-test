@@ -30,6 +30,6 @@ public class Launch extends CommandGroup {
 		// a CommandGroup containing them would require both the chassis and the
 		// arm.
 		addParallel(new IntakeDown());
-		addSequential(new FullJaguar(),300);
+		addSequential(new FullJaguar(),.3);
 	}
 }

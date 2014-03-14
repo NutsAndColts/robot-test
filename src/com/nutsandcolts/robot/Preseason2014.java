@@ -58,6 +58,7 @@ public class Preseason2014 extends IterativeRobot {
         // continue until interrupted by another command, remove
         // this line or comment it out.
         //autonomousCommand.cancel();
+	    autonomousCommand.cancel();
     }
 
     /**
