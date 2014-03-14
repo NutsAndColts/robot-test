@@ -1,8 +1,8 @@
 package com.nutsandcolts.robot;
 
-import com.nutsandcolts.robot.commands.IntakePush;
+import com.nutsandcolts.robot.commands.IntakeUp;
 import com.nutsandcolts.robot.commands.IntakeIdle;
-import com.nutsandcolts.robot.commands.IntakePull;
+import com.nutsandcolts.robot.commands.IntakeDown;
 import com.nutsandcolts.robot.commands.FullJaguar;
 import com.nutsandcolts.robot.commands.IdleJaguar;
 import com.nutsandcolts.robot.commands.ZJaguar;
@@ -22,18 +22,18 @@ public class OI {
     private Joystick stick1 = new Joystick(JOYSTICK_PORT1);
     private Joystick stick2 = new Joystick(JOYSTICK_PORT2);
     
-    Button intakePull = new JoystickButton(stick1,9);
+    Button intakeDown = new JoystickButton(stick1,9);
     Button intakeIdle = new JoystickButton(stick1,10);
-    Button intakePush = new JoystickButton(stick1,11);
+    Button intakeUp = new JoystickButton(stick1,11);
     
     Button zJaguar  = new JoystickButton(stick1,7); 
     Button fullJag = new JoystickButton(stick1,3);
     Button idleJag = new JoystickButton(stick1,2);
     
     public OI() {
-        intakePull.whenPressed(new IntakePull());
+        intakeDown.whenPressed(new IntakeDown());
         intakeIdle.whenPressed(new IntakeIdle());
-        intakePush.whenPressed(new IntakePush());
+        intakeUp.whenPressed(new IntakeUp());
         
         fullJag.whileHeld(new FullJaguar());
         idleJag.whileHeld(new IdleJaguar());

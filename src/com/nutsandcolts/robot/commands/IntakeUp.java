@@ -9,9 +9,9 @@ package com.nutsandcolts.robot.commands;
  *
  * @author Zach Kimberg
  */
-public class IntakePush extends CommandBase {
+public class IntakeUp extends CommandBase {
     
-    public IntakePush() {
+    public IntakeUp() {
         // Use requires() here to declare subsystem dependencies
         requires(intake);
     }
