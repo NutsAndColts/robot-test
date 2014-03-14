@@ -18,7 +18,7 @@ public class IntakeUp extends CommandBase {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        intake.set(-1);
+        intake.set(1);
     }
 
     // Called repeatedly when this Command is scheduled to run

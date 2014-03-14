@@ -8,6 +8,7 @@ package com.nutsandcolts.robot.subsystems;
 
 import com.nutsandcolts.robot.Preseason2014;
 import com.nutsandcolts.robot.RobotMap;
+import com.nutsandcolts.robot.commands.DriveIntakeWithJoystick;
 import com.nutsandcolts.robot.commands.IntakeIdle;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.RobotDrive;
@@ -44,6 +45,6 @@ public class Intake extends Subsystem {
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
-        setDefaultCommand(new IntakeIdle());
+        setDefaultCommand(new DriveIntakeWithJoystick());
     }
 }

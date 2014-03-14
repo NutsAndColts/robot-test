@@ -30,13 +30,13 @@ public class OI {
     Button launch = new JoystickButton(stick2,1);
     
     Button zJaguar  = new JoystickButton(stick2,7); 
-    Button fullJag = new JoystickButton(stick2,3);
-    Button idleJag = new JoystickButton(stick2,2);
+    Button fullJag = new JoystickButton(stick2,2);
+    Button idleJag = new JoystickButton(stick2,3);
     
     public OI() {
-        intakeDown.whenPressed(new IntakeDown());
-        intakeIdle.whenPressed(new IntakeIdle());
-        intakeUp.whenPressed(new IntakeUp());
+        intakeDown.whileHeld(new IntakeDown());
+        intakeIdle.whileHeld(new IntakeIdle());
+        intakeUp.whileHeld(new IntakeUp());
         
 	launch.whenPressed(new Launch());
 	
