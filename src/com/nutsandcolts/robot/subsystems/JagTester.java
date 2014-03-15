@@ -39,6 +39,6 @@ public class JagTester extends Subsystem {
     }
 
 	public boolean isBack() {
-		return gyro.getAngle()<-40;
+		return gyro.getAngle()<-35;
 	}
 }

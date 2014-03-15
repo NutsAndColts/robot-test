@@ -5,15 +5,16 @@
  */
 package com.nutsandcolts.robot.commands;
 
+import com.nutsandcolts.robot.Preseason2014;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
  *
  * @author Zach Kimberg
  */
-public class LaunchDown extends CommandGroup {
+public class LaunchBack extends CommandGroup {
 	
-	public LaunchDown() {
+	public LaunchBack() {
         // Add Commands here:
 		// e.g. addSequential(new Command1());
 		//      addSequential(new Command2());

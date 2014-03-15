@@ -30,6 +30,6 @@ public class LaunchRelease extends CommandGroup {
 		// a CommandGroup containing them would require both the chassis and the
 		// arm.
 		addParallel(new IntakeDown());
-		addSequential(new FullJaguar(),.5);
+		addSequential(new FullJaguar(),.8);
 	}
 }

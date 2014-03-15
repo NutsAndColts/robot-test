@@ -5,6 +5,8 @@
  */
 package com.nutsandcolts.robot.commands;
 
+import com.nutsandcolts.robot.Preseason2014;
+
 /**
  *
  * @author Zach Kimberg
@@ -19,6 +21,7 @@ public class CatapultBack extends CommandBase {
 
 	// Called just before this Command runs the first time
 	protected void initialize() {
+		Preseason2014.disp(4,"Catapult back");
 		jagTester.set(1.0);
 	}
 

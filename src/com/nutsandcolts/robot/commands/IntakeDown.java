@@ -5,6 +5,8 @@
  */
 package com.nutsandcolts.robot.commands;
 
+import com.nutsandcolts.robot.Preseason2014;
+
 /**
  *
  * @author Anthony
@@ -18,6 +20,7 @@ public class IntakeDown extends CommandBase {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+	Preseason2014.disp(3,"Intake down");
         intake.set(-1);
     }
 

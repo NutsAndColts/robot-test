@@ -21,6 +21,7 @@ public class FullJaguar extends CommandBase {
 
     // Called just before this Command runs the first time
     protected void initialize(){ 
+	Preseason2014.disp(4,"Catapult full");
             jagTester.set(1.0);
     }
 

@@ -30,7 +30,7 @@ public class Launch extends CommandGroup {
 		// a CommandGroup containing them would require both the chassis and the
 		// arm.
 		//addSequential(new ResetGyro());
-		addSequential(new LaunchDown());
+		addSequential(new LaunchBack());
 		addSequential(new LaunchRelease());
 		addSequential(new LaunchStop());
 	}
