@@ -5,14 +5,12 @@ import edu.wpi.first.wpilibj.command.Command;
 import com.nutsandcolts.robot.OI;
 import com.nutsandcolts.robot.subsystems.Drive;
 
-import com.nutsandcolts.robot.subsystems.Intake;
 import com.nutsandcolts.robot.subsystems.JagTester;
 
 public abstract class CommandBase extends Command {
 
     public static OI oi;
-    public static Drive drive = new Drive();
-    public static Intake intake = new Intake();    
+    public static Drive drive = new Drive();   
     public static JagTester jagTester = new JagTester();
 
     public static void init() {

@@ -20,8 +20,5 @@ public class RobotMap {
     public static final int rightMotor = 2;
     public static final int testJaguar = 3;
     
-    public static final int intakeMotor1 = 4;
-    public static final int intakeMotor2 = 5;
-    
     public static final int gyro = 2;
 }

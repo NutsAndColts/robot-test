@@ -1,11 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.nutsandcolts.robot.commands;
-
-import com.nutsandcolts.robot.Preseason2014;
 
 /**
  *
@@ -14,14 +7,12 @@ import com.nutsandcolts.robot.Preseason2014;
 public class FullJaguar extends CommandBase {
     
     public FullJaguar() {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
         requires(jagTester);
     }
 
     // Called just before this Command runs the first time
     protected void initialize(){ 
-            jagTester.set(1.0);
+        jagTester.set(1.0);
     }
 
     // Called repeatedly when this Command is scheduled to run

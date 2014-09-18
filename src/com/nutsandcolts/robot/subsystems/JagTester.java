@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.nutsandcolts.robot.subsystems;
 
 import com.nutsandcolts.robot.Preseason2014;
@@ -28,7 +23,7 @@ public class JagTester extends Subsystem {
     }
     
     public void printGyro(){
-        Preseason2014.disp(2,"Angle: "+gyro.getAngle());
+        Preseason2014.disp(2, "Angle: " + gyro.getAngle());
     }
     
     public void initDefaultCommand() {

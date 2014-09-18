@@ -4,17 +4,13 @@
 /* must be accompanied by the FIRST BSD license file in the root directory of */
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
-
 package com.nutsandcolts.robot;
-
 
 import edu.wpi.first.wpilibj.DriverStationLCD;
 import edu.wpi.first.wpilibj.IterativeRobot;
-import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import com.nutsandcolts.robot.commands.CommandBase;
-import com.nutsandcolts.robot.commands.autoCommandGroup;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -24,9 +20,7 @@ import com.nutsandcolts.robot.commands.autoCommandGroup;
  * directory.
  */
 public class Preseason2014 extends IterativeRobot {
-
-    Command autonomousCommand;
-
+    
     /**
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
@@ -36,13 +30,13 @@ public class Preseason2014 extends IterativeRobot {
         //autonomousCommand = new ExampleCommand();
 
         // Initialize all subsystems
-        autonomousCommand = new autoCommandGroup();
+        // autonomousCommand = new autoCommandGroup();
         CommandBase.init();
     }
 
     public void autonomousInit() {
         // schedule the autonomous command (example)
-        autonomousCommand.start();
+        // autonomousCommand.start();
     }
 
     /**
@@ -57,8 +51,7 @@ public class Preseason2014 extends IterativeRobot {
         // teleop starts running. If you want the autonomous to 
         // continue until interrupted by another command, remove
         // this line or comment it out.
-        //autonomousCommand.cancel();
-	    autonomousCommand.cancel();
+        // autonomousCommand.cancel();
     }
 
     /**
@@ -104,7 +97,6 @@ public class Preseason2014 extends IterativeRobot {
                 break;
             
         }
-        
         DriverStationLCD.getInstance().println(l, 1, msg);
         DriverStationLCD.getInstance().updateLCD();
     }
